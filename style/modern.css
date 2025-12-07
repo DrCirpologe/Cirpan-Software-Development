@@ -599,6 +599,143 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeIn 0.6s ease-out;
 }
 
+/* ===== GOOGLE REVIEWS SLIDER MIT DOTS ===== */
+.google-reviews-slider-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  padding: 20px 0;
+}
+
+.google-reviews-slider {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.google-review-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.google-review-slide.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.google-review-card-wide {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #dadce0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.google-review-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.google-logo {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.google-review-info {
+  flex: 1;
+}
+
+.google-review-name {
+  font-weight: 600;
+  color: #202124;
+  font-size: 16px;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.google-review-date {
+  font-size: 13px;
+  color: #5f6368;
+  margin-bottom: 8px;
+}
+
+.google-review-stars {
+  margin-bottom: 12px;
+}
+
+.google-star {
+  color: #fbbc04;
+  font-size: 14px;
+  margin-right: 2px;
+}
+
+.google-review-text {
+  color: #202124;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Dots Navigation */
+.google-reviews-dots {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 6px;
+  background-color: #bdc1c6;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: #5f6368;
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background-color: #4285f4;
+  transform: scale(1.3);
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Design für Mobile */
+@media (max-width: 768px) {
+  .google-reviews-slider {
+    height: 220px;
+  }
+  
+  .google-review-card-wide {
+    padding: 16px;
+  }
+  
+  .google-review-name {
+    font-size: 15px;
+  }
+  
+  .google-review-text {
+    font-size: 13px;
+  }
+}
+
 .animate-scale-in {
   animation: scaleIn 0.6s ease-out;
 }
