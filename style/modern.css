@@ -1332,8 +1332,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-package-card.business {
-  background: rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.25);
+  border: 1px solid rgba(59, 130, 246, 0.5);
   transform: scale(1.05);
 }
 
