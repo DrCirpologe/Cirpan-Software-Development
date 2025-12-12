@@ -1085,13 +1085,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-icon {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   margin-bottom: 4px;
 }
 
 .pricing-title {
   color: var(--gray-900);
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
   margin-bottom: 6px;
   text-transform: uppercase;
@@ -1104,7 +1104,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .price-amount {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 800;
   color: var(--primary);
 }
@@ -1117,9 +1117,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-description {
   color: var(--gray-700);
-  line-height: 1.5;
+  line-height: 1.4;
   margin-bottom: 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 .pricing-features {
@@ -1129,7 +1129,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-features h4 {
   color: var(--gray-900);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   margin-bottom: 6px;
   font-weight: 600;
 }
@@ -1141,11 +1141,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-features li {
-  padding: 3px 0;
+  padding: 2px 0;
   color: var(--gray-700);
-  line-height: 1.3;
+  line-height: 1.2;
   border-bottom: 1px solid var(--gray-200);
-  font-size: 0.88rem;
+  font-size: 0.8rem;
 }
 
 .pricing-features li:last-child {
