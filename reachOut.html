@@ -298,6 +298,124 @@
       font-weight: 500;
       margin-bottom: var(--space-xl);
     }
+
+    /* Website Packages Styles */
+    .website-packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    
+    .website-package-option {
+      position: relative;
+    }
+    
+    .website-package-option input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .website-package-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      background: var(--bg-tertiary);
+      border: 2px solid var(--gray-800);
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      position: relative;
+      text-align: center;
+      height: 183px;
+      min-height: 183px;
+    }
+    
+    .website-package-option input:checked + .website-package-label {
+      border-color: var(--primary);
+      background: rgba(99, 102, 241, 0.1);
+    }
+    
+    .package-badge {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      background: linear-gradient(135deg, #6366f1, #4f46e5);
+      color: white;
+      padding: 0.2rem 0.4rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      z-index: 10;
+      animation: glow 1.5s infinite alternate;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px rgba(99, 102, 241, 0.5), 0 0 10px rgba(99, 102, 241, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.6);
+      }
+    }
+    
+    .package-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-xs);
+    }
+    
+    .package-info {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .package-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+    
+    .package-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    
+    .package-price span {
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    
+    .package-desc {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.2;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .website-packages-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .website-package-label {
+        text-align: left;
+      }
+      
+      .package-info {
+        text-align: left;
+      }
+    }
     
     .status-dot {
       width: 8px;
@@ -502,8 +620,48 @@
             </div>
             
             <div class="form-group">
-              <label class="form-label">Projekt-Typ *</label>
-              <div class="project-type-grid">
+              <label class="form-label">Zusätzliche Services</label>
+              
+              <!-- Website Pakete -->
+              <div class="website-packages-grid">
+                <div class="website-package-option">
+                  <input type="checkbox" id="basic" name="websitePackage" value="basic">
+                  <label for="basic" class="website-package-label">
+                    <div class="package-icon">🟦</div>
+                    <div class="package-info">
+                      <div class="package-title">ONE-PAGE WEBSITE</div>
+                      <div class="package-price">29,90 €<span>/Monat</span></div>
+                      <div class="package-desc">Perfekt für Kleinunternehmer</div>
+                    </div>
+                  </label>
+                </div>
+                <div class="website-package-option">
+                  <input type="checkbox" id="business" name="websitePackage" value="business">
+                  <label for="business" class="website-package-label">
+                    <div class="package-badge">Beliebt</div>
+                    <div class="package-icon">🟧</div>
+                    <div class="package-info">
+                      <div class="package-title">BUSINESS WEBSITE</div>
+                      <div class="package-price">59,90 €<span>/Monat</span></div>
+                      <div class="package-desc">Komplette Online-Präsenz</div>
+                    </div>
+                  </label>
+                </div>
+                <div class="website-package-option">
+                  <input type="checkbox" id="premium" name="websitePackage" value="premium">
+                  <label for="premium" class="website-package-label">
+                    <div class="package-icon">🟥</div>
+                    <div class="package-info">
+                      <div class="package-title">PREMIUM + SHOP</div>
+                      <div class="package-price">119,90 €<span>/Monat</span></div>
+                      <div class="package-desc">Website + Online-Shop</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Andere Services -->
+              <div class="project-type-grid" style="margin-top: var(--space-lg);">
                 <div class="project-type-option">
                   <input type="checkbox" id="ios" name="projectType" value="ios">
                   <label for="ios" class="project-type-label">
@@ -518,7 +676,6 @@
                     <div class="project-type-text">Android App</div>
                   </label>
                 </div>
-
                 <div class="project-type-option">
                   <input type="checkbox" id="design" name="projectType" value="design">
                   <label for="design" class="project-type-label">

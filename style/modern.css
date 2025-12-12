@@ -1061,6 +1061,13 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.03);
 }
 
+.pricing-card.featured .pricing-badge {
+  animation: pricingGlow 1.5s infinite alternate !important;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5) !important;
+  z-index: 999 !important;
+  position: relative !important;
+}
+
 .pricing-card.featured:hover {
   transform: scale(1.03) translateY(-4px);
   box-shadow: 0 0 0 3px var(--white), 0 8px 30px rgba(0, 0, 0, 0.12);
@@ -1101,6 +1108,23 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.85rem;
   font-weight: 600;
   z-index: 10;
+  animation: pricingGlow 1.5s infinite alternate !important;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5) !important;
+}
+
+.pricing-card.featured .pricing-badge {
+  animation: pricingGlow 1.5s infinite alternate !important;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5) !important;
+  z-index: 999 !important;
+}
+
+@keyframes pricingGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5), 0 0 10px rgba(99, 102, 241, 0.3) !important;
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.6) !important;
+  }
 }
 
 .pricing-header {
@@ -1397,6 +1421,17 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.85rem;
   font-weight: 600;
   z-index: 10;
+  animation: glow 1.5s infinite alternate;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(99, 102, 241, 0.5), 0 0 10px rgba(99, 102, 241, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.6);
+  }
 }
 
 .hero-package-icon {
