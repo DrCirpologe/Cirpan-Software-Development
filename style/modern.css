@@ -1300,10 +1300,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== HERO PACKAGES ===== */
 .hero-packages {
   display: grid;
-  grid-template-columns: repeat(3, minmax(317px, 382px));
+  grid-template-columns: repeat(3, minmax(380px, 458px));
   gap: 2.31rem;
   margin-top: 2rem;
-  max-width: 1381px;
+  max-width: 1657px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 2rem;
