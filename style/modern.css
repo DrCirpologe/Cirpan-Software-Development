@@ -1047,12 +1047,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 0 3px var(--white), 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2) !important;
+  transition: all 0.3s ease !important;
 }
 
 .pricing-card:active {
-  box-shadow: 0 0 0 3px var(--white), 0 4px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 50px rgba(59, 130, 246, 0.3) !important;
 }
 
 .pricing-card.featured {
