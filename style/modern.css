@@ -1066,6 +1066,26 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 3px var(--white), 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Orange Button für Business Karte */
+.pricing-card.business .btn-primary {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.3);
+}
+
+.pricing-card.business .btn-primary:hover {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+  box-shadow: 0 0 15px rgba(251, 146, 60, 0.8), 0 0 25px rgba(251, 146, 60, 0.5), 0 6px 20px rgba(249, 115, 22, 0.4) !important;
+  transform: translateY(-3px) !important;
+  border-color: rgba(251, 146, 60, 0.5) !important;
+}
+
+.pricing-card.business .btn-primary:active {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 0 20px rgba(251, 146, 60, 1), 0 0 30px rgba(251, 146, 60, 0.7) !important;
+  transform: translateY(-1px) scale(0.98) !important;
+}
+
 .pricing-badge {
   position: absolute;
   top: -5px;
