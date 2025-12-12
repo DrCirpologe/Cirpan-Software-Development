@@ -189,7 +189,7 @@
     }
     
     .hero-title {
-      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-size: clamp(2.42rem, 5.5vw, 4.95rem);
       font-weight: 900;
       margin-bottom: var(--space-lg);
       background: linear-gradient(135deg, var(--text-primary) 0%, var(--primary-light) 50%, var(--accent) 100%);
@@ -197,6 +197,9 @@
       background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: fadeInUp 1s ease-out;
+      text-align: center;
+      line-height: 1.1;
+      padding: 0 1rem;
     }
     
     .hero-subtitle {
@@ -243,105 +246,7 @@
       transform: translateY(-2px);
     }
     
-    /* Hero Mini Packages */
-    .hero-packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-3xl);
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
-    .hero-package-card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-xl);
-      padding: var(--space-lg);
-      text-align: center;
-      transition: all var(--transition-normal);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero-package-card.basic {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: rgba(59, 130, 246, 0.3);
-    }
-    
-    .hero-package-card.business {
-      background: rgba(59, 130, 246, 0.15);
-      border-color: rgba(59, 130, 246, 0.4);
-    }
-    
-    .hero-package-card.premium {
-      background: rgba(239, 68, 68, 0.1);
-      border-color: rgba(239, 68, 68, 0.3);
-    }
-    
-    .hero-package-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    }
-    
-    .hero-package-badge {
-      position: absolute;
-      top: -1px;
-      right: var(--space-md);
-      background: var(--primary);
-      color: var(--white);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: 0 0 var(--radius-md) var(--radius-md);
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .hero-package-icon {
-      font-size: 2rem;
-      margin-bottom: var(--space-sm);
-    }
-    
-    .hero-package-title {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    
-    .hero-package-price {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: var(--primary);
-      margin-bottom: var(--space-xs);
-    }
-    
-    .hero-package-price span {
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-    }
-    
-    .hero-package-desc {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin: 0;
-      line-height: 1.4;
-    }
-    
-    @media (max-width: 768px) {
-      .hero-packages {
-        grid-template-columns: 1fr;
-        gap: var(--space-md);
-        margin-top: var(--space-2xl);
-      }
-    }
+
     
     .about-section {
       background: var(--bg-secondary);
@@ -724,7 +629,7 @@
     </div>
     
     <div class="hero-content">
-      <h1 class="hero-title">Moderne Software-Entwicklung</h1>
+      <h1 class="hero-title">Moderne Software<br>Entwicklung</h1>
       
       <!-- Hero Mini Packages -->
       <div class="hero-packages">

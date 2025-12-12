@@ -1065,15 +1065,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .pricing-badge {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  background: var(--primary);
-  color: var(--white);
-  padding: 6px 14px;
-  border-radius: 18px;
-  font-size: 0.75rem;
+  top: -5px;
+  right: -5px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  padding: 0.3rem 0.61rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: 600;
-  z-index: 1;
+  z-index: 10;
 }
 
 .pricing-header {
@@ -1300,18 +1300,19 @@ h1, h2, h3, h4, h5, h6 {
 /* ===== HERO PACKAGES ===== */
 .hero-packages {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(317px, 382px));
+  gap: 2.31rem;
   margin-top: 2rem;
-  max-width: 800px;
+  max-width: 1381px;
   margin-left: auto;
   margin-right: auto;
-  /* Force refresh */
+  padding: 0 2rem;
+  justify-content: center;
 }
 
 .hero-package-card {
   position: relative;
-  padding: 1rem;
+  padding: 1.91rem 3.17rem;
   border-radius: 12px;
   text-align: center;
   backdrop-filter: blur(10px);
@@ -1324,53 +1325,63 @@ h1, h2, h3, h4, h5, h6 {
 .hero-package-card:hover {
   transform: translateY(-5px) scale(1.02);
   background: rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), 0 0 40px rgba(59, 130, 246, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.hero-package-card.business:hover {
+  transform: translateY(-5px) scale(1.02) scale(1.05);
+}
+
+.hero-package-card:active {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6), 0 0 50px rgba(59, 130, 246, 0.3) !important;
 }
 
 .hero-package-card.basic {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .hero-package-card.business {
-  background: rgba(59, 130, 246, 0.25);
-  border: 1px solid rgba(59, 130, 246, 0.5);
+  background: rgba(99, 102, 241, 0.1) !important;
+  border: 2px solid rgba(99, 102, 241, 0.6) !important;
   transform: scale(1.05);
 }
 
 .hero-package-card.premium {
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
 }
 
 .hero-package-badge {
   position: absolute;
   top: -5px;
   right: -5px;
-  background: linear-gradient(135deg, #f59e0b, #f97316);
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: white;
-  padding: 0.25rem 0.5rem;
+  padding: 0.30rem 0.60rem;
   border-radius: 8px;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 600;
   z-index: 10;
 }
 
 .hero-package-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.82rem;
+  margin-bottom: 0.60rem;
 }
 
 .hero-package-title {
-  font-size: 0.8rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.60rem;
   letter-spacing: 1px;
 }
 
 .hero-package-price {
-  font-size: 1rem;
+  font-size: 1.21rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.60rem;
   color: #fbbf24;
 }
 
@@ -1381,12 +1392,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-package-desc {
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.3;
 }
 
-/* Mobile Responsiveness */
+/* Mobile Responsiveness für Hero Packages */
 @media (max-width: 768px) {
   .hero-packages {
     grid-template-columns: 1fr;
