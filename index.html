@@ -132,30 +132,18 @@
   }
   </script>
   
-  <!-- Cache Control Meta Tags for better performance -->
-  <meta http-equiv="Cache-Control" content="public, max-age=2592000, immutable">
-  
   <!-- Preload critical images for Google -->
   <link rel="preload" as="image" href="image/ich.png" type="image/png">
   <link rel="apple-touch-icon" href="image/ich.png">
   
-  <!-- Styles (loaded via preload above for better mobile performance) -->
+  <!-- Styles -->
+  <link rel="stylesheet" href="style/modern.css?v=2024122512">
   
-  <!-- Performance: Font Preconnects (Mobile Critical) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
-  <!-- Performance: Non-blocking Font Loading -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" onload="this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
-  </noscript>
-  
-  <!-- Performance: CSS Preload -->
-  <link rel="preload" href="/style/modern.css?v=2024122512" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/style/modern.css?v=2024122512"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
