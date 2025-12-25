@@ -271,7 +271,7 @@ class ModernWebsite {
   }
 
   // Enhanced Smooth Scrolling
-  setupSmoothScrolling() {
+    // Smooth scrolling for anchor links (Mobile-optimized: prevent forced reflows)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', (e) => {
         e.preventDefault();
@@ -279,10 +279,14 @@ class ModernWebsite {
         const target = document.querySelector(anchor.getAttribute('href'));
         if (!target) return;
         
-        const navbarHeight = document.querySelector('.navbar').offsetHeight;
-        const targetPosition = target.offsetTop - navbarHeight - 20;
+        // Cache navbar height to prevent forced reflows (Mobile Performance)
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar ? navbar.offsetHeight : 80; // fallback
         
-        this.smoothScrollTo(targetPosition, 800);
+        requestAnimationFrame(() => {
+          const targetPosition = target.offsetTop - navbarHeight - 20;
+          this.smoothScrollTo(targetPosition, 800);
+        });
       });
     });
   }

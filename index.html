@@ -132,18 +132,30 @@
   }
   </script>
   
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Cache Control Meta Tags for better performance -->
+  <meta http-equiv="Cache-Control" content="public, max-age=2592000, immutable">
   
   <!-- Preload critical images for Google -->
   <link rel="preload" as="image" href="image/ich.png" type="image/png">
   <link rel="apple-touch-icon" href="image/ich.png">
   
-  <!-- Styles -->
-  <link rel="stylesheet" href="style/modern.css?v=2024122512">
+  <!-- Styles (loaded via preload above for better mobile performance) -->
+  
+  <!-- Performance: Font Preconnects (Mobile Critical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Performance: Non-blocking Font Loading -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
+  </noscript>
+  
+  <!-- Performance: CSS Preload -->
+  <link rel="preload" href="/style/modern.css?v=2024122512" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/style/modern.css?v=2024122512"></noscript>
   
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -706,7 +718,12 @@
         </div>
         
         <div class="about-image animate-slide-in-right">
-          <img src="image/ich.png" alt="Oğuzhan Cirpan - Software Developer bei CIRPAN Software Development" width="400" height="400" loading="lazy" />
+          <!-- Mobile-optimized responsive image -->
+          <picture>
+            <source srcset="image/ich-mobile.webp" media="(max-width: 768px)" type="image/webp">
+            <source srcset="image/ich.webp" type="image/webp">
+            <img src="image/ich.png" alt="Oğuzhan Cirpan - Software Developer bei CIRPAN Software Development" width="400" height="400" loading="eager" fetchpriority="high" />
+          </picture>
         </div>
       </div>
     </div>
@@ -1198,10 +1215,10 @@
     </div>
   </footer>
   
-  <!-- Scripts -->
-  <script src="js/cookie-consent.js"></script>
-  <script src="js/modern.js"></script>
-  <script src="js/google-reviews-slider.js"></script>
+  <!-- Scripts: Deferred loading for better mobile performance -->
+  <script src="js/cookie-consent.js" defer></script>
+  <script src="js/modern.js" defer></script>
+  <script src="js/google-reviews-slider.js" defer></script>
   <script>
     // Statistiken Animation - vereinfacht und robuster
     document.addEventListener('DOMContentLoaded', function() {
@@ -1300,7 +1317,5 @@
     });
   </script>
   
-  <!-- Google Reviews Slider Script -->
-  <script src="js/google-reviews-slider.js"></script>
 </body>
 </html><-destination 'platform=iOS Test Thu Dec 11 20:03:39 CET 2025 -->
