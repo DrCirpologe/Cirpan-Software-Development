@@ -1462,3 +1462,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.8rem;
   }
 }
+
+/* Mobile Accessibility Improvements */
+@media (max-width: 768px) {
+  .btn-outline {
+    background-color: #020617 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+  }
+
+  .btn-accent {
+    background: #1e3a8a !important;
+    color: #ffffff !important;
+  }
+
+  .btn-accent:hover {
+    background: #1e40af !important;
+  }
+}
