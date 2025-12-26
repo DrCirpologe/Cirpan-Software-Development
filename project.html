@@ -327,6 +327,22 @@
         margin-left: 22px;
         margin-right: 10px;
       }
+      
+      .ampersand-mobile {
+        display: none;
+      }
+      
+      .ampersand-desktop {
+        display: inline;
+      }
+      
+      .ampersand-mobile {
+        display: inline;
+      }
+      
+      .ampersand-desktop {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -374,7 +390,7 @@
     <div class="container">
       <h1 class="h1 animate-fade-in-up">Meine Projekte</h1>
       <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
-        Eine Auswahl meiner neuesten Arbeiten in iOS & Android Entwicklung sowie Web Development
+        Eine Auswahl meiner neuesten Arbeiten in iOS <span class="ampersand-desktop">&</span><span class="ampersand-mobile">&-</span> Android Entwicklung sowie Web Development
       </p>
     </div>
   </section>
