@@ -424,7 +424,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mobile-nav {
-  display: flex;
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -433,14 +433,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: var(--z-modal);
   background: rgba(15, 15, 35, 0.95);
   backdrop-filter: blur(20px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-normal);
-}
-
-.mobile-nav.active {
-  opacity: 1;
-  pointer-events: auto;
 }
 
 .mobile-nav-content {
