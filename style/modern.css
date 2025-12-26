@@ -499,6 +499,37 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding: 0 16px;
   }
+  
+  .navbar-nav {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .section-header {
+    padding: 0 var(--space-md);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card {
+    padding: var(--space-lg);
+  }
 }
 
 /* iPhone 12 Mini, iPhone 13 Mini (bis 390px) */
@@ -506,12 +537,74 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding: 0 20px;
   }
+  
+  .navbar-nav {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .section-header {
+    padding: 0 var(--space-md);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card {
+    padding: var(--space-lg);
+  }
 }
 
 /* iPhone 11, iPhone XR, iPhone 14 Plus (bis 414px) */
 @media (min-width: 391px) and (max-width: 414px) {
   .container {
     padding: 0 24px;
+  }
+  
+  .navbar-nav {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: flex;
+  }
+  
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section {
+    padding: var(--space-4xl) 0;
+  }
+  
+  .section-header {
+    padding: 0 var(--space-md);
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card {
+    padding: var(--space-lg);
   }
 }
 
