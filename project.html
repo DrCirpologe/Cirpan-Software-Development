@@ -275,7 +275,7 @@
     /* Mobile Responsive */
     @media (max-width: 768px) {
       .projects-hero {
-        text-align: left;
+        text-align: center;
       }
       
       .projects-hero .container {
@@ -311,6 +311,20 @@
         top: var(--space-lg);
         transform: none;
         max-height: calc(100vh - var(--space-2xl));
+      }
+      
+      .btn-lg {
+        padding: var(--space-sm) calc(var(--space-lg) - 5px) !important;
+        font-size: 0.875rem !important;
+        transform: none !important;
+      }
+      
+      .flex.gap-lg.justify-center {
+        margin: 0 10px;
+      }
+      
+      footer .grid > div {
+        margin-left: 12px;
       }
     }
   </style>
