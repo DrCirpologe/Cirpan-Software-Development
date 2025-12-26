@@ -56,8 +56,8 @@
   --bg-secondary: #1a1a3a;
   --bg-tertiary: #262650;
   --text-primary: #ffffff;
-  --text-secondary: #ffffff;
-  --text-muted: #cbd5e1;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -261,9 +261,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline {
-  background: rgba(31, 41, 55, 0.8);
-  color: var(--white);
-  border: 2px solid var(--gray-300);
+  background: rgba(75, 85, 99, 0.2);
+  color: var(--text-primary);
+  border: 2px solid var(--gray-500);
 }
 
 .btn-outline:hover {
