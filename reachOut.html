@@ -458,6 +458,19 @@
         text-align: center;
         gap: var(--space-md);
       }
+      
+      .mobile-top-button {
+        display: block !important;
+        width: 150px;
+        height: 42px;
+        background-color: transparent;
+        color: transparent;
+        border: none;
+        border-radius: 4px;
+        margin: 0 auto 20px auto;
+        font-size: 14px;
+        cursor: pointer;
+      }
     }
     
     @media (max-width: 480px) {
@@ -478,6 +491,11 @@
   </style>
 </head>
 <body>
+  <style>
+    .mobile-top-button {
+      display: none;
+    }
+  </style>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="container">
@@ -519,6 +537,7 @@
   <!-- Hero Section -->
   <section class="contact-hero">
     <div class="container">
+      <button class="mobile-top-button">Button</button>
       <h1 class="h1 animate-fade-in-up">Lassen Sie uns sprechen</h1>
       <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
         Haben Sie ein Projekt im Kopf? Ich helfe Ihnen gerne dabei, Ihre Idee zu verwirklichen.
