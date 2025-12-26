@@ -333,6 +333,14 @@
         overflow-wrap: break-word;
         text-align: left;
       }
+      
+      .mobile-break {
+        display: inline;
+      }
+    }
+    
+    .mobile-break {
+      display: none;
     }
   </style>
 </head>
@@ -380,7 +388,9 @@
     <div class="container">
       <h1 class="h1 animate-fade-in-up">Meine Projekte</h1>
       <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
-        Eine Auswahl meiner neuesten Arbeiten in iOS & Android Entwicklung sowie Web Development
+        Eine Auswahl meiner neuesten Arbeiten in<br class="mobile-break">
+        iOS & Android Entwicklung sowie Web<br class="mobile-break">
+        Development
       </p>
     </div>
   </section>
