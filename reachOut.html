@@ -496,7 +496,7 @@
           <li><a href="reachOut.html" class="nav-link active">Kontakt</a></li>
         </ul>
         
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()">
           <span></span>
           <span></span>
           <span></span>
@@ -929,6 +929,36 @@
     
     // Initial validation
     validateForm();
+  </script>
+  
+  <!-- Simple Mobile Menu Script -->
+  <script>
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      
+      if (mobileNav.style.display === 'flex') {
+        mobileNav.style.display = 'none';
+        mobileMenuBtn.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      } else {
+        mobileNav.style.display = 'flex';
+        mobileMenuBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    // Close menu when clicking on links
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('#mobile-nav .nav-link');
+      navLinks.forEach(link => {
+        link.onclick = function() {
+          document.getElementById('mobile-nav').style.display = 'none';
+          document.getElementById('mobile-menu-btn').classList.remove('active');
+          document.body.style.overflow = 'auto';
+        };
+      });
+    });
   </script>
 </body>
 </html>
