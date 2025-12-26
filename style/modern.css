@@ -491,6 +491,35 @@ h1, h2, h3, h4, h5, h6 {
   .container {
     padding: 0 var(--space-lg);
   }
+}
+
+/* Responsive Container für verschiedene iPhones */
+/* iPhone SE und kleinere (bis 375px) */
+@media (max-width: 375px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* iPhone 12 Mini, iPhone 13 Mini (bis 390px) */
+@media (min-width: 376px) and (max-width: 390px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* iPhone 11, iPhone XR, iPhone 14 Plus (bis 414px) */
+@media (min-width: 391px) and (max-width: 414px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+/* iPhone 11 Pro Max, iPhone 12 Pro Max und größere */
+@media (min-width: 415px) and (max-width: 768px) {
+  .container {
+    padding: 0 28px;
+  }
   
   .navbar-nav {
     display: none;
