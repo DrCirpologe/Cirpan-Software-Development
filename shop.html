@@ -25,6 +25,100 @@
       position: relative;
       overflow: hidden;
     }
+
+    .construction-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+      padding: var(--space-4xl) 0;
+    }
+
+    .construction-icon {
+      width: 120px;
+      height: 120px;
+      margin-bottom: var(--space-2xl);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.75rem;
+      color: white;
+      animation: rotate 2s linear infinite;
+      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .construction-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-lg);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .construction-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-xl);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .construction-description {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      line-height: 1.7;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .coming-soon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-full);
+      padding: var(--space-sm) var(--space-lg);
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-top: var(--space-lg);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+      }
+    }
     
     /* Responsive Design */
     @media (max-width: 768px) {
@@ -127,6 +221,7 @@
   </div>
   
   <!-- Hero Section -->
+  <!-- 
   <section class="shop-hero">
     <div class="container">
       <button class="mobile-top-button">Button</button>
@@ -136,11 +231,35 @@
       </p>
     </div>
   </section>
+  -->
   
   <!-- Main Content Section -->
   <section class="section">
     <div class="container">
-      <!-- Hier können Sie Ihren Shop-Inhalt hinzufügen -->
+      <div class="construction-container">
+        <div class="construction-icon">
+          ⚙️
+        </div>
+        
+        <h2 class="construction-title">
+          Shop wird entwickelt
+        </h2>
+        
+        <p class="construction-subtitle">
+          Wir arbeiten intensiv daran, Ihnen bald ein außergewöhnliches Shop-Erlebnis zu bieten.
+        </p>
+        
+        <p class="construction-description">
+          Unser Team entwickelt derzeit eine innovative E-Commerce-Lösung mit modernsten Technologien. 
+          Der neue Shop wird intuitive Navigation, sichere Zahlungsmethoden und ein nahtloses 
+          Einkaufserlebnis auf allen Geräten bieten.
+        </p>
+        
+        <div class="coming-soon-badge">
+          <div class="pulse-dot"></div>
+          Bald verfügbar
+        </div>
+      </div>
     </div>
   </section>
   
