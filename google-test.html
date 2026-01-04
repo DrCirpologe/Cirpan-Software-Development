@@ -35,10 +35,45 @@
     }
   }
   </script>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .about-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    
+    .about-image img {
+      width: 70%;
+      height: auto;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <h1>Oğuzhan Cirpan - Software Developer</h1>
-  <img src="image/ich.png" alt="Oğuzhan Cirpan - Software Developer" width="400" height="400" loading="eager">
+  <div class="about-image">
+    <img src="image/ich.png" alt="Oğuzhan Cirpan - Software Developer" width="400" height="400" loading="eager">
+  </div>
   <p>Software Developer bei CIRPAN Software Development. Spezialisiert auf iOS Apps, Android Apps und moderne Websites.</p>
 </body>
 </html>
