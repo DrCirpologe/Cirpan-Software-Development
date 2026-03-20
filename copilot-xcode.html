@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Copilot mit Xcode verbinden — CIRPAN Software Development</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Schritt-für-Schritt-Anleitung: GitHub Copilot mit Xcode verbinden. KI-gestützte Code-Vervollständigung für iOS und macOS Entwicklung.">
+  <meta name="keywords" content="GitHub Copilot, Xcode, iOS Entwicklung, Swift, KI, Code-Vervollständigung, Copilot Extension">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style/modern.css">
+  
+  <!-- Snowfall Effect -->
+  <link rel="stylesheet" href="style/effects/schneefall.css">
+  
+  <style>
+    .guide-hero {
+      padding: var(--space-5xl) 0 var(--space-4xl);
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+      animation: rotate 30s linear infinite;
+    }
+
+    .guide-hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-lg);
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: var(--radius-full);
+      color: var(--primary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .steps-section {
+      padding: var(--space-5xl) 0;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      display: flex;
+      gap: var(--space-xl);
+      transition: all var(--transition-normal);
+      position: relative;
+    }
+
+    .step-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-2px);
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: white;
+    }
+
+    .step-body {
+      flex: 1;
+    }
+
+    .step-body h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    .step-body p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 0;
+    }
+
+    .step-body a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .step-body a:hover {
+      text-decoration: underline;
+    }
+
+    .step-body .code-inline {
+      display: inline-block;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius-sm);
+      padding: 2px 8px;
+      font-family: monospace;
+      font-size: 0.875rem;
+      color: var(--primary);
+    }
+
+    .prereq-section {
+      padding: var(--space-4xl) 0 var(--space-3xl);
+    }
+
+    .prereq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-xl);
+      max-width: 860px;
+      margin: var(--space-2xl) auto 0;
+    }
+
+    .prereq-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      transition: all var(--transition-normal);
+    }
+
+    .prereq-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .prereq-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .prereq-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    .prereq-card p {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .tip-box {
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin-top: var(--space-4xl);
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tip-box .tip-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: var(--space-sm);
+      font-size: 0.95rem;
+    }
+
+    .tip-box p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .section-heading h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: var(--space-md);
+    }
+
+    .section-heading p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .guide-hero {
+        padding: var(--space-4xl) 0 var(--space-3xl);
+      }
+
+      .step-card {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .step-number {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+      }
+
+      .section-heading h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 var(--space-md);
+      }
+
+      footer .grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      footer .grid > div:nth-child(1) {
+        margin-bottom: 20px;
+      }
+
+      footer .grid > div:nth-child(2),
+      footer .grid > div:nth-child(3) {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-right: 10px;
+        margin-left: 27px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Snowfall Effect -->
+  <div class="snowfall">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">
+          <span style="color: var(--primary);">{</span>
+          <span>CIRPAN</span>
+          <span style="color: var(--primary); animation: blink 1s infinite;">}</span>
+        </a>
+        
+        <ul class="navbar-nav">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="index.html#about" class="nav-link">Über mich</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="angebote.html" class="nav-link">Angebote</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="project.html" class="nav-link">Projekte</a></li>
+          <li><a href="reachOut.html" class="nav-link">Kontakt</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <a href="index.html" class="nav-link">Start</a>
+      <a href="index.html#about" class="nav-link">Über mich</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="angebote.html" class="nav-link">Angebote</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="project.html" class="nav-link">Projekte</a>
+      <a href="reachOut.html" class="nav-link">Kontakt</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="guide-hero">
+    <div class="container">
+      <div class="badge animate-fade-in-up">
+        <span>🤖</span>
+        <span>KI-Entwicklungstool</span>
+      </div>
+      <h1 class="h1 animate-fade-in-up">GitHub Copilot mit Xcode verbinden</h1>
+      <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s; max-width: 620px; margin: 0 auto;">
+        Schritt-für-Schritt-Anleitung zur Integration von GitHub Copilot in Xcode — 
+        für KI-gestützte Code-Vervollständigung direkt in deiner iOS &amp; macOS Entwicklungsumgebung.
+      </p>
+    </div>
+  </section>
+
+  <!-- Prerequisites Section -->
+  <section class="prereq-section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Voraussetzungen</h2>
+        <p>Stelle sicher, dass folgende Punkte erfüllt sind, bevor du mit der Einrichtung beginnst.</p>
+      </div>
+
+      <div class="prereq-grid">
+        <div class="prereq-card">
+          <div class="prereq-icon">🐙</div>
+          <h4>GitHub-Konto</h4>
+          <p>Ein kostenloses oder kostenpflichtiges GitHub-Konto unter <a href="https://github.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">github.com</a>.</p>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-icon">✨</div>
+          <h4>Copilot-Abonnement</h4>
+          <p>Ein aktives GitHub Copilot Abonnement (Individual, Business oder das kostenlose Kontingent).</p>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-icon">🛠️</div>
+          <h4>Xcode</h4>
+          <p>Xcode 8 oder neuer, installiert aus dem Mac App Store auf einem Mac mit macOS 12 Monterey oder neuer.</p>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-icon">🍎</div>
+          <h4>macOS Monterey+</h4>
+          <p>Dein Mac muss mindestens macOS 12 Monterey verwenden, um die Xcode-Erweiterung auszuführen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Schritt-für-Schritt-Anleitung</h2>
+        <p>Folge diesen Schritten, um GitHub Copilot in Xcode einzurichten.</p>
+      </div>
+
+      <div class="steps-grid">
+
+        <!-- Step 1 -->
+        <div class="step-card animate-fade-in-up">
+          <div class="step-number">1</div>
+          <div class="step-body">
+            <h3>GitHub Copilot for Xcode installieren</h3>
+            <p>
+              Öffne den <strong>Mac App Store</strong> auf deinem Mac und suche nach 
+              <strong>„GitHub Copilot for Xcode"</strong>. Klicke auf <em>Laden</em>, um die offizielle 
+              App von GitHub zu installieren. Sie enthält die Xcode Source Editor Extension sowie 
+              den Copilot-Agenten, der im Hintergrund läuft.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card animate-fade-in-up" style="animation-delay: 0.05s;">
+          <div class="step-number">2</div>
+          <div class="step-body">
+            <h3>Xcode Source Editor Extension aktivieren</h3>
+            <p>
+              Öffne die <strong>Systemeinstellungen</strong> (macOS Ventura/Sonoma: 
+              <span class="code-inline">Systemeinstellungen → Datenschutz &amp; Sicherheit → Erweiterungen</span>, 
+              ältere macOS-Versionen: <span class="code-inline">Systemeinstellungen → Erweiterungen</span>). 
+              Wähle den Abschnitt <strong>Xcode Source Editor</strong> und aktiviere den Eintrag 
+              <em>GitHub Copilot</em> durch Setzen des Häkchens.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card animate-fade-in-up" style="animation-delay: 0.1s;">
+          <div class="step-number">3</div>
+          <div class="step-body">
+            <h3>Mit GitHub anmelden</h3>
+            <p>
+              Starte die <strong>GitHub Copilot for Xcode</strong> App aus dem Launchpad oder 
+              Finder. Klicke in der App auf <em>„Sign in to GitHub"</em>. Du wirst zu deinem 
+              Browser weitergeleitet, um dich mit deinem GitHub-Konto zu authentifizieren und 
+              die notwendigen Berechtigungen zu erteilen. Bestätige den Zugriff, kehre dann 
+              zur App zurück und schließe den Anmeldevorgang ab.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step-card animate-fade-in-up" style="animation-delay: 0.15s;">
+          <div class="step-number">4</div>
+          <div class="step-body">
+            <h3>Copilot-Agent als Hintergrunddienst erlauben</h3>
+            <p>
+              Die GitHub Copilot App startet einen lokalen Agenten-Prozess, der die 
+              Kommunikation mit den GitHub-Servern übernimmt. macOS wird dich fragen, 
+              ob du den Dienst <em>zulassen</em> möchtest — klicke auf <strong>Erlauben</strong>. 
+              Du kannst den automatischen Start beim Login in den 
+              <span class="code-inline">Einstellungen</span> der Copilot App aktivieren, 
+              damit der Agent nach einem Neustart automatisch verfügbar ist.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step-card animate-fade-in-up" style="animation-delay: 0.2s;">
+          <div class="step-number">5</div>
+          <div class="step-body">
+            <h3>Xcode neu starten</h3>
+            <p>
+              Starte Xcode vollständig neu (beende Xcode und öffne es erneut), damit die 
+              Erweiterung geladen wird. Öffne danach ein bestehendes oder neues Projekt und 
+              navigiere zu <span class="code-inline">Editor → GitHub Copilot</span> in der 
+              Menüleiste. Wenn der Eintrag erscheint, ist die Extension erfolgreich geladen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step-card animate-fade-in-up" style="animation-delay: 0.25s;">
+          <div class="step-number">6</div>
+          <div class="step-body">
+            <h3>Copilot in Xcode verwenden</h3>
+            <p>
+              Schreibe Code in einer Swift-, Objective-C- oder anderen unterstützten Datei. 
+              Copilot zeigt automatisch Vorschläge als grauen Geistertext an. 
+              Drücke <span class="code-inline">Tab</span>, um einen Vorschlag anzunehmen. 
+              Mit <span class="code-inline">Esc</span> lehnst du ihn ab. Über 
+              <span class="code-inline">Editor → GitHub Copilot → Next Suggestion</span> 
+              (oder das zugewiesene Tastenkürzel) kannst du durch weitere Vorschläge blättern.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tip Box -->
+      <div class="tip-box animate-fade-in-up" style="animation-delay: 0.3s;">
+        <div class="tip-header">
+          <span>💡</span>
+          <span>Tastenkürzel einrichten</span>
+        </div>
+        <p>
+          Für ein flüssigeres Arbeiten empfiehlt es sich, individuelle Tastenkürzel für Copilot-Aktionen 
+          zu vergeben. Öffne dazu in Xcode <strong>Xcode → Einstellungen → Key Bindings</strong> und 
+          suche nach „Copilot". Du kannst Vorschläge annehmen, ablehnen und zum nächsten/vorherigen 
+          wechseln — ganz ohne die Maus zu benutzen.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section-sm bg-secondary">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
+        <div class="col-span-2">
+          <div class="navbar-brand mb-lg">
+            <span style="color: var(--primary);">{</span>
+            <span>CIRPAN</span>
+            <span style="color: var(--primary);">}</span>
+          </div>
+          <p class="text-muted mb-lg">
+            Professionelle Software-Entwicklung mit modernsten Technologien 
+            und ansprechendem Design.
+          </p>
+          <p class="text-sm text-muted">
+            © 2025 CIRPAN Software Development. Alle Rechte vorbehalten.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="mb-lg">Services</h3>
+          <ul class="space-y-sm">
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">iOS Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Android Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Web Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">UI/UX Design</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="mb-lg">Legal</h3>
+          <ul class="space-y-sm">
+            <li><a href="impressum.html" class="text-muted hover:text-primary transition">Impressum</a></li>
+            <li><a href="datenschutz.html" class="text-muted hover:text-primary transition">Datenschutz</a></li>
+            <li><a href="cookies.html" class="text-muted hover:text-primary transition">Cookie-Richtlinie</a></li>
+            <li><a href="agb.html" class="text-muted hover:text-primary transition">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/modern.js"></script>
+  
+  <!-- Simple Mobile Menu Script -->
+  <script>
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      
+      if (mobileNav.style.display === 'flex') {
+        mobileNav.style.display = 'none';
+        mobileMenuBtn.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      } else {
+        mobileNav.style.display = 'flex';
+        mobileMenuBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    
+    // Close menu when clicking on links
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('#mobile-nav .nav-link');
+      navLinks.forEach(link => {
+        link.onclick = function() {
+          document.getElementById('mobile-nav').style.display = 'none';
+          document.getElementById('mobile-menu-btn').classList.remove('active');
+          document.body.style.overflow = 'auto';
+        };
+      });
+    });
+  </script>
+</body>
+</html>
