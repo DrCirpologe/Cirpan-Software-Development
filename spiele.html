@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spiele — CIRPAN Software Development</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Interaktive Browser-Spiele von CIRPAN Software Development. Spielen Sie Tic-Tac-Toe, Snake und mehr direkt im Browser.">
+  <meta name="keywords" content="Spiele, Browser Games, Tic-Tac-Toe, Snake, Mini Games, CIRPAN">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style/modern.css">
+  
+  <!-- Schneefall Effect -->
+  <link rel="stylesheet" href="style/effects/schneefall.css">
+  
+  <style>
+    .games-hero {
+      padding: var(--space-5xl) 0 var(--space-4xl);
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .games-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+      animation: rotate 30s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: var(--space-2xl);
+      margin-top: var(--space-4xl);
+    }
+
+    .game-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .game-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .game-header {
+      padding: var(--space-xl);
+      border-bottom: 1px solid var(--gray-800);
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .game-icon {
+      font-size: 2rem;
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .game-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .game-subtitle {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .game-body {
+      padding: var(--space-xl);
+    }
+
+    /* ========== TIC-TAC-TOE ========== */
+    .ttt-status {
+      text-align: center;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+      min-height: 1.5em;
+    }
+
+    .ttt-board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 280px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    .ttt-cell {
+      aspect-ratio: 1;
+      background: var(--bg-tertiary);
+      border: 2px solid var(--gray-700);
+      border-radius: var(--radius-md);
+      font-size: 2.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .ttt-cell:hover:not(.taken) {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: var(--primary);
+    }
+
+    .ttt-cell.taken {
+      cursor: default;
+    }
+
+    .ttt-cell.x-cell {
+      color: var(--primary);
+    }
+
+    .ttt-cell.o-cell {
+      color: var(--accent);
+    }
+
+    .ttt-cell.winning {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+      animation: winPulse 0.6s ease;
+    }
+
+    @keyframes winPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .game-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-xl);
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-md);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition-normal);
+      width: 100%;
+    }
+
+    .game-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .score-board {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-xl);
+      margin-bottom: var(--space-lg);
+    }
+
+    .score-item {
+      text-align: center;
+    }
+
+    .score-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .score-value {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+    }
+
+    .score-value.x-score { color: var(--primary); }
+    .score-value.o-score { color: var(--accent); }
+
+    /* ========== SNAKE ========== */
+    .snake-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .snake-info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .snake-score-label {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .snake-score-label span {
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    #snakeCanvas {
+      border: 2px solid var(--gray-700);
+      border-radius: var(--radius-md);
+      background: var(--bg-tertiary);
+      display: block;
+      max-width: 100%;
+    }
+
+    .snake-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      grid-template-rows: repeat(2, 40px);
+      gap: 4px;
+      margin-top: var(--space-sm);
+    }
+
+    .ctrl-btn {
+      width: 40px;
+      height: 40px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--gray-700);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s;
+      user-select: none;
+    }
+
+    .ctrl-btn:active {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .ctrl-up { grid-column: 2; grid-row: 1; }
+    .ctrl-left { grid-column: 1; grid-row: 2; }
+    .ctrl-down { grid-column: 2; grid-row: 2; }
+    .ctrl-right { grid-column: 3; grid-row: 2; }
+
+    .snake-hint {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: var(--space-sm);
+    }
+
+    /* ========== MEMORY ========== */
+    .memory-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-md);
+    }
+
+    .memory-stat {
+      text-align: center;
+    }
+
+    .memory-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .memory-stat-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-width: 280px;
+      margin: 0 auto var(--space-lg);
+    }
+
+    .memory-card {
+      aspect-ratio: 1;
+      cursor: pointer;
+      perspective: 600px;
+      user-select: none;
+    }
+
+    .memory-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+      border-radius: var(--radius-md);
+    }
+
+    .memory-card.flipped .memory-card-inner,
+    .memory-card.matched .memory-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .memory-card-front,
+    .memory-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .memory-card-front {
+      background: var(--bg-tertiary);
+      border: 2px solid var(--gray-700);
+      font-size: 1.5rem;
+    }
+
+    .memory-card-back {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      border: 2px solid transparent;
+      transform: rotateY(180deg);
+      font-size: 1.5rem;
+    }
+
+    .memory-card.matched .memory-card-back {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .games-hero {
+        padding: var(--space-4xl) 0 var(--space-3xl);
+      }
+
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #snakeCanvas {
+        width: 280px;
+        height: 280px;
+      }
+
+      .navbar-brand {
+        margin-left: 20px !important;
+      }
+
+      .mobile-menu-btn {
+        margin-right: 18px !important;
+      }
+
+      footer .grid > div {
+        margin-left: 22px;
+        margin-right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Snowfall Effect -->
+  <div class="snowfall">
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+    <div class="snowflake">❆</div>
+    <div class="snowflake">❄</div>
+    <div class="snowflake">❅</div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">
+          <span style="color: var(--primary);">{</span>
+          <span>CIRPAN</span>
+          <span style="color: var(--primary); animation: blink 1s infinite;">}</span>
+        </a>
+        
+        <ul class="navbar-nav">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="index.html#about" class="nav-link">Über mich</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="angebote.html" class="nav-link">Angebote</a></li>
+          <li><a href="shop.html" class="nav-link">Shop</a></li>
+          <li><a href="project.html" class="nav-link">Projekte</a></li>
+          <li><a href="spiele.html" class="nav-link active">Spiele</a></li>
+          <li><a href="reachOut.html" class="nav-link">Kontakt</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <a href="index.html" class="nav-link">Start</a>
+      <a href="index.html#about" class="nav-link">Über mich</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="angebote.html" class="nav-link">Angebote</a>
+      <a href="shop.html" class="nav-link">Shop</a>
+      <a href="project.html" class="nav-link">Projekte</a>
+      <a href="spiele.html" class="nav-link">Spiele</a>
+      <a href="reachOut.html" class="nav-link">Kontakt</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="games-hero">
+    <div class="container" style="position: relative; z-index: 1;">
+      <h1 class="h1 animate-fade-in-up">🎮 Spiele</h1>
+      <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s; max-width: 600px; margin: 0 auto;">
+        Spielen Sie klassische Browser-Spiele direkt hier – keine Installation, kein Konto nötig.
+      </p>
+    </div>
+  </section>
+
+  <!-- Games Section -->
+  <section class="section">
+    <div class="container">
+      <div class="games-grid">
+
+        <!-- ===== TIC-TAC-TOE ===== -->
+        <div class="game-card">
+          <div class="game-header">
+            <div class="game-icon">⭕</div>
+            <div>
+              <div class="game-title">Tic-Tac-Toe</div>
+              <div class="game-subtitle">2 Spieler – lokal</div>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="score-board">
+              <div class="score-item">
+                <div class="score-label">Spieler X</div>
+                <div class="score-value x-score" id="ttt-score-x">0</div>
+              </div>
+              <div class="score-item">
+                <div class="score-label">Unentschieden</div>
+                <div class="score-value" id="ttt-score-draw">0</div>
+              </div>
+              <div class="score-item">
+                <div class="score-label">Spieler O</div>
+                <div class="score-value o-score" id="ttt-score-o">0</div>
+              </div>
+            </div>
+            <div class="ttt-status" id="ttt-status">Spieler X ist dran</div>
+            <div class="ttt-board" id="ttt-board">
+              <div class="ttt-cell" data-index="0" onclick="tttMove(0)"></div>
+              <div class="ttt-cell" data-index="1" onclick="tttMove(1)"></div>
+              <div class="ttt-cell" data-index="2" onclick="tttMove(2)"></div>
+              <div class="ttt-cell" data-index="3" onclick="tttMove(3)"></div>
+              <div class="ttt-cell" data-index="4" onclick="tttMove(4)"></div>
+              <div class="ttt-cell" data-index="5" onclick="tttMove(5)"></div>
+              <div class="ttt-cell" data-index="6" onclick="tttMove(6)"></div>
+              <div class="ttt-cell" data-index="7" onclick="tttMove(7)"></div>
+              <div class="ttt-cell" data-index="8" onclick="tttMove(8)"></div>
+            </div>
+            <button class="game-btn" onclick="tttReset()">🔄 Neu starten</button>
+          </div>
+        </div>
+
+        <!-- ===== SNAKE ===== -->
+        <div class="game-card">
+          <div class="game-header">
+            <div class="game-icon">🐍</div>
+            <div>
+              <div class="game-title">Snake</div>
+              <div class="game-subtitle">Pfeiltasten oder Buttons</div>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="snake-container">
+              <div class="snake-info">
+                <div class="snake-score-label">Punkte: <span id="snake-score">0</span></div>
+                <div class="snake-score-label">Highscore: <span id="snake-highscore">0</span></div>
+              </div>
+              <canvas id="snakeCanvas" width="300" height="300"></canvas>
+              <div class="snake-controls">
+                <button class="ctrl-btn ctrl-up" onclick="snakeChangeDir(0, -1)">▲</button>
+                <button class="ctrl-btn ctrl-left" onclick="snakeChangeDir(-1, 0)">◀</button>
+                <button class="ctrl-btn ctrl-down" onclick="snakeChangeDir(0, 1)">▼</button>
+                <button class="ctrl-btn ctrl-right" onclick="snakeChangeDir(1, 0)">▶</button>
+              </div>
+              <p class="snake-hint">Pfeiltasten oder Buttons zum Steuern</p>
+              <button class="game-btn" id="snake-start-btn" onclick="snakeStart()">▶ Spiel starten</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== MEMORY ===== -->
+        <div class="game-card">
+          <div class="game-header">
+            <div class="game-icon">🧠</div>
+            <div>
+              <div class="game-title">Memory</div>
+              <div class="game-subtitle">Finde alle Paare</div>
+            </div>
+          </div>
+          <div class="game-body">
+            <div class="memory-info">
+              <div class="memory-stat">
+                <div class="memory-stat-label">Versuche</div>
+                <div class="memory-stat-value" id="mem-moves">0</div>
+              </div>
+              <div class="memory-stat">
+                <div class="memory-stat-label">Paare</div>
+                <div class="memory-stat-value" id="mem-pairs">0 / 8</div>
+              </div>
+            </div>
+            <div class="memory-grid" id="memory-grid"></div>
+            <button class="game-btn" onclick="memoryInit()">🔄 Neu mischen</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section-sm bg-secondary">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
+        <div class="col-span-2">
+          <div class="navbar-brand mb-lg">
+            <span style="color: var(--primary);">{</span>
+            <span>CIRPAN</span>
+            <span style="color: var(--primary);">}</span>
+          </div>
+          <p class="text-muted mb-lg">
+            Professionelle Software-Entwicklung mit modernsten Technologien 
+            und ansprechendem Design.
+          </p>
+          <p class="text-sm text-muted">
+            © 2025 CIRPAN Software Development. Alle Rechte vorbehalten.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="mb-lg">Services</h3>
+          <ul class="space-y-sm">
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">iOS Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Android Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Web Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">UI/UX Design</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="mb-lg">Legal</h3>
+          <ul class="space-y-sm">
+            <li><a href="impressum.html" class="text-muted hover:text-primary transition">Impressum</a></li>
+            <li><a href="datenschutz.html" class="text-muted hover:text-primary transition">Datenschutz</a></li>
+            <li><a href="cookies.html" class="text-muted hover:text-primary transition">Cookie-Richtlinie</a></li>
+            <li><a href="agb.html" class="text-muted hover:text-primary transition">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/modern.js"></script>
+  
+  <!-- Mobile Menu -->
+  <script>
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      if (mobileNav.style.display === 'flex') {
+        mobileNav.style.display = 'none';
+        mobileMenuBtn.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      } else {
+        mobileNav.style.display = 'flex';
+        mobileMenuBtn.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('#mobile-nav .nav-link');
+      navLinks.forEach(link => {
+        link.onclick = function() {
+          document.getElementById('mobile-nav').style.display = 'none';
+          document.getElementById('mobile-menu-btn').classList.remove('active');
+          document.body.style.overflow = 'auto';
+        };
+      });
+    });
+  </script>
+
+  <!-- Tic-Tac-Toe -->
+  <script>
+    const TTT_WINS = [
+      [0,1,2],[3,4,5],[6,7,8],
+      [0,3,6],[1,4,7],[2,5,8],
+      [0,4,8],[2,4,6]
+    ];
+    let tttBoard = Array(9).fill(null);
+    let tttCurrent = 'X';
+    let tttGameOver = false;
+    let tttScores = { X: 0, O: 0, draw: 0 };
+
+    function tttMove(idx) {
+      if (tttGameOver || tttBoard[idx]) return;
+      tttBoard[idx] = tttCurrent;
+      const cell = document.querySelector(`.ttt-cell[data-index="${idx}"]`);
+      cell.textContent = tttCurrent === 'X' ? '✕' : '○';
+      cell.classList.add('taken', tttCurrent === 'X' ? 'x-cell' : 'o-cell');
+
+      const winner = tttCheckWin();
+      if (winner) {
+        winner.forEach(i => document.querySelector(`.ttt-cell[data-index="${i}"]`).classList.add('winning'));
+        document.getElementById('ttt-status').textContent = `Spieler ${tttCurrent} gewinnt! 🎉`;
+        tttScores[tttCurrent]++;
+        document.getElementById(`ttt-score-${tttCurrent.toLowerCase()}`).textContent = tttScores[tttCurrent];
+        tttGameOver = true;
+      } else if (tttBoard.every(Boolean)) {
+        document.getElementById('ttt-status').textContent = 'Unentschieden! 🤝';
+        tttScores.draw++;
+        document.getElementById('ttt-score-draw').textContent = tttScores.draw;
+        tttGameOver = true;
+      } else {
+        tttCurrent = tttCurrent === 'X' ? 'O' : 'X';
+        document.getElementById('ttt-status').textContent = `Spieler ${tttCurrent} ist dran`;
+      }
+    }
+
+    function tttCheckWin() {
+      for (const combo of TTT_WINS) {
+        const [a,b,c] = combo;
+        if (tttBoard[a] && tttBoard[a] === tttBoard[b] && tttBoard[a] === tttBoard[c]) return combo;
+      }
+      return null;
+    }
+
+    function tttReset() {
+      tttBoard = Array(9).fill(null);
+      tttCurrent = 'X';
+      tttGameOver = false;
+      document.querySelectorAll('.ttt-cell').forEach(c => {
+        c.textContent = '';
+        c.className = 'ttt-cell';
+      });
+      document.getElementById('ttt-status').textContent = 'Spieler X ist dran';
+    }
+  </script>
+
+  <!-- Snake -->
+  <script>
+    const SNAKE_GRID = 20;
+    const SNAKE_CELL = 15;
+    let snakeState = null;
+    let snakeLoop = null;
+    let snakeHighscore = 0;
+
+    function snakeInit() {
+      const mid = Math.floor(SNAKE_GRID / 2);
+      return {
+        snake: [{ x: mid, y: mid }],
+        dir: { x: 1, y: 0 },
+        nextDir: { x: 1, y: 0 },
+        food: snakeRandFood([{ x: mid, y: mid }]),
+        score: 0,
+        running: false
+      };
+    }
+
+    function snakeRandFood(snake) {
+      let pos;
+      do {
+        pos = { x: Math.floor(Math.random() * SNAKE_GRID), y: Math.floor(Math.random() * SNAKE_GRID) };
+      } while (snake.some(s => s.x === pos.x && s.y === pos.y));
+      return pos;
+    }
+
+    function snakeChangeDir(dx, dy) {
+      if (!snakeState || !snakeState.running) return;
+      const { dir } = snakeState;
+      if (snakeState.snake.length > 1 && dx === -dir.x && dy === -dir.y) return;
+      snakeState.nextDir = { x: dx, y: dy };
+    }
+
+    function snakeDraw() {
+      const canvas = document.getElementById('snakeCanvas');
+      const ctx = canvas.getContext('2d');
+      const cs = getComputedStyle(document.documentElement);
+      const bgColor = cs.getPropertyValue('--bg-tertiary').trim() || '#1e1e2e';
+      const primaryColor = cs.getPropertyValue('--primary').trim() || '#6366f1';
+      const accentColor = cs.getPropertyValue('--accent').trim() || '#8b5cf6';
+      const textColor = cs.getPropertyValue('--text-secondary').trim() || '#94a3b8';
+
+      ctx.fillStyle = bgColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      if (!snakeState) return;
+
+      // Food
+      ctx.fillStyle = '#f59e0b';
+      ctx.beginPath();
+      ctx.arc(
+        snakeState.food.x * SNAKE_CELL + SNAKE_CELL / 2,
+        snakeState.food.y * SNAKE_CELL + SNAKE_CELL / 2,
+        SNAKE_CELL / 2 - 1, 0, Math.PI * 2
+      );
+      ctx.fill();
+
+      // Snake
+      snakeState.snake.forEach((seg, i) => {
+        const t = i / snakeState.snake.length;
+        ctx.fillStyle = i === 0 ? primaryColor : accentColor;
+        ctx.globalAlpha = 1 - t * 0.4;
+        const pad = i === 0 ? 1 : 2;
+        const sx = seg.x * SNAKE_CELL + pad;
+        const sy = seg.y * SNAKE_CELL + pad;
+        const sw = SNAKE_CELL - pad * 2;
+        const sr = 3;
+        ctx.beginPath();
+        ctx.moveTo(sx + sr, sy);
+        ctx.lineTo(sx + sw - sr, sy);
+        ctx.arcTo(sx + sw, sy, sx + sw, sy + sr, sr);
+        ctx.lineTo(sx + sw, sy + sw - sr);
+        ctx.arcTo(sx + sw, sy + sw, sx + sw - sr, sy + sw, sr);
+        ctx.lineTo(sx + sr, sy + sw);
+        ctx.arcTo(sx, sy + sw, sx, sy + sw - sr, sr);
+        ctx.lineTo(sx, sy + sr);
+        ctx.arcTo(sx, sy, sx + sr, sy, sr);
+        ctx.closePath();
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      });
+
+      if (!snakeState.running) {
+        ctx.fillStyle = 'rgba(0,0,0,0.6)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#fff';
+        ctx.font = 'bold 18px Inter, sans-serif';
+        ctx.textAlign = 'center';
+        if (snakeState.score > 0) {
+          ctx.fillText('Game Over!', canvas.width / 2, canvas.height / 2 - 16);
+          ctx.font = '14px Inter, sans-serif';
+          ctx.fillStyle = textColor;
+          ctx.fillText(`Punkte: ${snakeState.score}`, canvas.width / 2, canvas.height / 2 + 10);
+        } else {
+          ctx.fillText('Snake', canvas.width / 2, canvas.height / 2);
+          ctx.font = '13px Inter, sans-serif';
+          ctx.fillStyle = textColor;
+          ctx.fillText('Klick "Spiel starten"', canvas.width / 2, canvas.height / 2 + 22);
+        }
+      }
+    }
+
+    function snakeTick() {
+      if (!snakeState || !snakeState.running) return;
+      snakeState.dir = snakeState.nextDir;
+      const head = snakeState.snake[0];
+      const next = { x: head.x + snakeState.dir.x, y: head.y + snakeState.dir.y };
+
+      if (
+        next.x < 0 || next.x >= SNAKE_GRID ||
+        next.y < 0 || next.y >= SNAKE_GRID ||
+        snakeState.snake.some(s => s.x === next.x && s.y === next.y)
+      ) {
+        snakeState.running = false;
+        if (snakeState.score > snakeHighscore) {
+          snakeHighscore = snakeState.score;
+          document.getElementById('snake-highscore').textContent = snakeHighscore;
+        }
+        document.getElementById('snake-start-btn').textContent = '🔄 Nochmal spielen';
+        snakeDraw();
+        return;
+      }
+
+      snakeState.snake.unshift(next);
+      if (next.x === snakeState.food.x && next.y === snakeState.food.y) {
+        snakeState.score++;
+        document.getElementById('snake-score').textContent = snakeState.score;
+        snakeState.food = snakeRandFood(snakeState.snake);
+      } else {
+        snakeState.snake.pop();
+      }
+      snakeDraw();
+    }
+
+    function snakeStart() {
+      if (snakeLoop) clearInterval(snakeLoop);
+      snakeState = snakeInit();
+      snakeState.running = true;
+      document.getElementById('snake-score').textContent = 0;
+      document.getElementById('snake-start-btn').textContent = '🔄 Neustart';
+      snakeLoop = setInterval(snakeTick, 130);
+      snakeDraw();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const map = {
+        ArrowUp:    { x: 0,  y: -1 },
+        ArrowDown:  { x: 0,  y:  1 },
+        ArrowLeft:  { x: -1, y:  0 },
+        ArrowRight: { x: 1,  y:  0 }
+      };
+      if (map[e.key]) {
+        e.preventDefault();
+        snakeChangeDir(map[e.key].x, map[e.key].y);
+      }
+    });
+
+    window.addEventListener('load', function() {
+      snakeState = snakeInit();
+      snakeDraw();
+    });
+  </script>
+
+  <!-- Memory -->
+  <script>
+    const MEMORY_EMOJIS = ['🎮','🚀','🌟','🎯','🔥','💎','🎸','🌈'];
+    let memCards = [];
+    let memFlipped = [];
+    let memMatched = 0;
+    let memMoves = 0;
+    let memLocked = false;
+
+    function memoryInit() {
+      const pairs = [...MEMORY_EMOJIS, ...MEMORY_EMOJIS];
+      for (let i = pairs.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+      }
+      memCards = pairs;
+      memFlipped = [];
+      memMatched = 0;
+      memMoves = 0;
+      memLocked = false;
+      document.getElementById('mem-moves').textContent = 0;
+      document.getElementById('mem-pairs').textContent = '0 / 8';
+
+      const grid = document.getElementById('memory-grid');
+      grid.innerHTML = '';
+      pairs.forEach((emoji, i) => {
+        const card = document.createElement('div');
+        card.className = 'memory-card';
+        card.dataset.index = i;
+        card.dataset.emoji = emoji;
+        card.innerHTML = `
+          <div class="memory-card-inner">
+            <div class="memory-card-front">❓</div>
+            <div class="memory-card-back">${emoji}</div>
+          </div>`;
+        card.addEventListener('click', memFlipCard);
+        grid.appendChild(card);
+      });
+    }
+
+    function memFlipCard() {
+      if (memLocked || this.classList.contains('flipped') || this.classList.contains('matched')) return;
+      this.classList.add('flipped');
+      memFlipped.push(this);
+
+      if (memFlipped.length === 2) {
+        memLocked = true;
+        memMoves++;
+        document.getElementById('mem-moves').textContent = memMoves;
+        const [a, b] = memFlipped;
+        if (a.dataset.emoji === b.dataset.emoji) {
+          a.classList.add('matched');
+          b.classList.add('matched');
+          memMatched++;
+          document.getElementById('mem-pairs').textContent = `${memMatched} / 8`;
+          memFlipped = [];
+          memLocked = false;
+          if (memMatched === 8) {
+            setTimeout(() => {
+              document.getElementById('mem-moves').textContent = `✅ ${memMoves}`;
+            }, 300);
+          }
+        } else {
+          setTimeout(() => {
+            a.classList.remove('flipped');
+            b.classList.remove('flipped');
+            memFlipped = [];
+            memLocked = false;
+          }, 900);
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', memoryInit);
+  </script>
+</body>
+</html>
