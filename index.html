@@ -482,6 +482,51 @@
       opacity: 0.9;
     }
     
+    /* Games Preview Section */
+    .games-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-4xl);
+    }
+
+    .games-preview-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      text-align: center;
+      transition: all var(--transition-normal);
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+    }
+
+    .games-preview-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .games-preview-icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-lg);
+    }
+
+    .games-preview-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+
+    .games-preview-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
     .cta-section {
       background: var(--bg-primary);
       text-align: center;
@@ -639,6 +684,7 @@
           <li><a href="angebote.html" class="nav-link">Angebote</a></li>
           <li><a href="shop.html" class="nav-link">Shop</a></li>
           <li><a href="project.html" class="nav-link">Projekte</a></li>
+          <li><a href="spiele.html" class="nav-link">Spiele</a></li>
           <li><a href="reachOut.html" class="nav-link">Kontakt</a></li>
         </ul>
         
@@ -686,6 +732,7 @@
       <a href="angebote.html" class="nav-link">Angebote</a>
       <a href="shop.html" class="nav-link">Shop</a>
       <a href="project.html" class="nav-link">Projekte</a>
+      <a href="spiele.html" class="nav-link">Spiele</a>
       <a href="reachOut.html" class="nav-link">Kontakt</a>
     </div>
   </div>
@@ -1064,6 +1111,42 @@
     </div>
   </section>
   
+  <!-- Spiele Preview Section -->
+  <section class="section bg-secondary">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Jetzt spielen</h2>
+        <p class="section-subtitle">
+          Drei klassische Browser-Spiele – direkt im Browser, ohne Installation.
+        </p>
+      </div>
+
+      <div class="games-preview-grid">
+        <a href="spiele.html#tic-tac-toe" class="games-preview-card animate-fade-in-up" style="--stagger: 1">
+          <div class="games-preview-icon">⭕</div>
+          <div class="games-preview-title">Tic-Tac-Toe</div>
+          <p class="games-preview-desc">2-Spieler-Klassiker mit Punkte&shy;zählung für X, O und Unentschieden.</p>
+        </a>
+
+        <a href="spiele.html#snake" class="games-preview-card animate-fade-in-up" style="--stagger: 2">
+          <div class="games-preview-icon">🐍</div>
+          <div class="games-preview-title">Snake</div>
+          <p class="games-preview-desc">Steuere die Schlange mit Pfeiltasten oder On-Screen-Buttons und jage den Highscore.</p>
+        </a>
+
+        <a href="spiele.html#memory" class="games-preview-card animate-fade-in-up" style="--stagger: 3">
+          <div class="games-preview-icon">🧠</div>
+          <div class="games-preview-title">Memory</div>
+          <p class="games-preview-desc">8 Emoji-Paare – finde alle Matches in so wenig Zügen wie möglich.</p>
+        </a>
+      </div>
+
+      <div class="text-center" style="margin-top: var(--space-3xl);">
+        <a href="spiele.html" class="btn btn-primary btn-lg">Zu den Spielen →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section id="contact" class="section cta-section">
     <div class="container">
