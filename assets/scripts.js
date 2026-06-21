@@ -202,6 +202,7 @@
     function setupContactForm() {
         var contactForm = document.getElementById('contact-form');
         var successMessage = document.getElementById('success-message');
+        var errorMessage = document.getElementById('error-message');
         if (!contactForm || !successMessage) {
             return;
         }
@@ -214,6 +215,12 @@
             }
         }
 
+        if (window.emailjs) {
+            window.emailjs.init({
+                publicKey: 'y3DYAOkaoWSL6brCU'
+            });
+        }
+
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
@@ -222,13 +229,52 @@
                 return;
             }
 
+            if (!window.emailjs) {
+                if (errorMessage) {
+                    errorMessage.classList.remove('hidden');
+                }
+                return;
+            }
+
+            var originalText = btn.innerHTML;
             btn.innerHTML = 'Wird gesendet...';
             btn.classList.add('opacity-50');
+            btn.disabled = true;
+            if (errorMessage) {
+                errorMessage.classList.add('hidden');
+            }
 
-            setTimeout(function () {
-                successMessage.classList.remove('hidden');
-                successMessage.classList.add('animate-in', 'fade-in', 'duration-500');
-            }, 1000);
+            var emailInput = contactForm.querySelector('[name="from_email"]');
+            var replyToInput = document.getElementById('reply-to');
+            var projectTypeSelect = document.getElementById('project-type');
+            var projectTypesInput = document.getElementById('project-types');
+            if (emailInput && replyToInput) {
+                replyToInput.value = emailInput.value;
+            }
+            if (projectTypeSelect && projectTypesInput) {
+                var selectedOption = projectTypeSelect.options[projectTypeSelect.selectedIndex];
+                projectTypesInput.value = selectedOption ? selectedOption.text : projectTypeSelect.value;
+            }
+
+            window.emailjs.sendForm('service_y2qfp0k', 'template_d1q49pp', contactForm)
+                .then(function () {
+                    successMessage.classList.remove('hidden');
+                    successMessage.classList.add('animate-in', 'fade-in', 'duration-500');
+                    contactForm.reset();
+                })
+                .catch(function (error) {
+                    console.error('EmailJS submission error:', error);
+                    if (errorMessage) {
+                        var detail = error && (error.text || error.message) ? ' Fehler: ' + (error.text || error.message) : '';
+                        errorMessage.innerHTML = 'Beim Senden ist ein Fehler aufgetreten.' + detail + ' Bitte versuchen Sie es erneut oder schreiben Sie direkt an <a class="underline hover:text-white" href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a>.';
+                        errorMessage.classList.remove('hidden');
+                    }
+                })
+                .finally(function () {
+                    btn.innerHTML = originalText;
+                    btn.classList.remove('opacity-50');
+                    btn.disabled = false;
+                });
         });
 
         var inputs = document.querySelectorAll('input, select, textarea');
@@ -254,6 +300,10 @@
             if (btn) {
                 btn.innerHTML = 'Nachricht senden';
                 btn.classList.remove('opacity-50');
+                btn.disabled = false;
+            }
+            if (errorMessage) {
+                errorMessage.classList.add('hidden');
             }
             successMessage.classList.add('hidden');
         };

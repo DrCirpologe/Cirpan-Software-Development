@@ -72,7 +72,7 @@
       "en"
     ]
   },
-  "email": "office@webnovastudio.at",
+  "email": "info.cirpan@gmail.com",
   "description": "WebNova Studio entwickelt Websites, Online-Shops, SEO-Lösungen und digitale Auftritte für Unternehmen in Österreich.",
   "sameAs": []
 }
@@ -314,8 +314,8 @@ Schildern Sie kurz Ihr Ziel. Wir antworten mit einer ehrlichen Einschätzung und
 </div>
 </div>
 <div class="flex flex-col sm:flex-row sm:flex-wrap gap-3 pt-2">
-<a class="rounded-xl border border-border-glass px-4 py-3 font-body-md text-[15px] text-text-secondary hover:text-white hover:border-primary/40 transition-colors" href="mailto:office@webnovastudio.at">
-office@webnovastudio.at
+<a class="rounded-xl border border-border-glass px-4 py-3 font-body-md text-[15px] text-text-secondary hover:text-white hover:border-primary/40 transition-colors" href="mailto:info.cirpan@gmail.com">
+info.cirpan@gmail.com
 </a>
 <a class="rounded-xl border border-border-glass px-4 py-3 font-body-md text-[15px] text-text-secondary hover:text-white hover:border-primary/40 transition-colors" href="tel:+436506803019">
 +43 650 6803019
@@ -338,6 +338,9 @@ WhatsApp
 <!-- Right: Lead Capture Form -->
 <div class="glass-card rounded-2xl p-6 md:p-8 inner-glow relative" id="form-container">
 <form class="space-y-4" id="contact-form">
+<input type="hidden" name="to_email" value="info.cirpan@gmail.com"/>
+<input type="hidden" name="reply_to" id="reply-to" value=""/>
+<input type="hidden" name="project_types" id="project-types" value=""/>
 <div class="mb-6">
 <h2 class="font-headline-h3 text-headline-h3 text-white mb-2">Nachricht senden</h2>
 <p class="font-body-md text-body-md text-text-secondary">Pflichtfelder sind mit * gekennzeichnet.</p>
@@ -345,26 +348,26 @@ WhatsApp
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="name">Name *</label>
-<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="name" placeholder="Max Mustermann" required="" type="text"/>
+<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="name" name="from_name" placeholder="Max Mustermann" required="" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="email">E-Mail *</label>
-<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="email" placeholder="max@beispiel.at" required="" type="email"/>
+<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="email" name="from_email" placeholder="max@beispiel.at" required="" type="email"/>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="phone">Telefon (optional)</label>
-<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="phone" placeholder="+43..." type="tel"/>
+<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="phone" name="phone" placeholder="+43..." type="tel"/>
 </div>
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="company">Unternehmen (optional)</label>
-<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="company" placeholder="Beispiel GmbH" type="text"/>
+<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="company" name="company" placeholder="Beispiel GmbH" type="text"/>
 </div>
 </div>
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="project-type">Worum geht es?</label>
-<select class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors" id="project-type">
+<select class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors" id="project-type" name="project_type">
 <option selected="" disabled="" value="">Bitte auswählen ...</option>
 <option value="starter-fix">Starter Website - Fixpreis</option>
 <option value="business-fix">Business Website - Fixpreis</option>
@@ -383,19 +386,22 @@ WhatsApp
 </div>
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="subject">Betreff *</label>
-<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="subject" placeholder="Website" required="" type="text"/>
+<input class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted" id="subject" name="subject" placeholder="Website" required="" type="text"/>
 </div>
 <div class="space-y-2">
 <label class="font-label-caps text-label-caps text-on-surface-variant" for="message">Nachricht *</label>
-<textarea class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted resize-none" id="message" placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben..." required="" rows="4"></textarea>
+<textarea class="w-full bg-[#171717] border border-border-glass rounded-lg px-4 py-3 text-on-surface focus:border-primary-container focus:ring-0 transition-colors placeholder-text-muted resize-none" id="message" name="message" placeholder="Erzählen Sie uns kurz von Ihrem Vorhaben..." required="" rows="4"></textarea>
 </div>
 <label class="flex items-start gap-3 text-text-secondary font-body-md text-body-md">
-<input class="mt-1 rounded border-border-glass bg-[#171717] text-primary-container focus:ring-primary-container" required="" type="checkbox"/>
+<input class="mt-1 rounded border-border-glass bg-[#171717] text-primary-container focus:ring-primary-container" name="privacy_accepted" required="" type="checkbox" value="Ja"/>
 <span>Ich habe die <a class="text-primary hover:text-white transition-colors" href="datenschutz.html">Datenschutzerklärung</a> gelesen und akzeptiere sie.</span>
 </label>
 <button class="w-full bg-primary-container text-on-primary-container font-label-caps text-label-caps py-4 rounded-xl uppercase tracking-[0.2em] font-bold hover:opacity-90 transition-all active:scale-[0.98]" type="submit">
                             Nachricht senden
                         </button>
+<p class="hidden rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 font-body-md text-body-md text-red-100" id="error-message">
+                            Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie direkt an <a class="underline hover:text-white" href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a>.
+                        </p>
 </form>
 <!-- Success Message (Hidden by Default) -->
 <div class="hidden absolute inset-0 flex flex-col items-center justify-center text-center p-10 bg-[#1C1C1C] rounded-xl z-10" id="success-message">
@@ -450,7 +456,7 @@ WhatsApp
         <h5 class="font-label-caps text-label-caps text-[#E53935] uppercase tracking-[0.16em]">Kontakt</h5>
         <div class="space-y-2 font-body-md text-body-md text-text-secondary">
           <p><a class="hover:text-on-surface transition-colors" href="tel:+436506803019">+43 650 6803019</a></p>
-          <p><a class="hover:text-on-surface transition-colors" href="mailto:office@webnovastudio.at">office@webnovastudio.at</a></p>
+          <p><a class="hover:text-on-surface transition-colors" href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a></p>
         </div>
       </div>
     </div>
@@ -468,5 +474,6 @@ WhatsApp
     </div>
   </div>
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="assets/scripts.js"></script>
 </body></html>
