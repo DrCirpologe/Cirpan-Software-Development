@@ -91,6 +91,55 @@
         });
     }
 
+    function setupMobileMenu() {
+        var toggle = document.querySelector('.mobile-menu-toggle');
+        var panel = document.querySelector('.mobile-menu-panel');
+        if (!toggle || !panel) {
+            return;
+        }
+
+        function setOpen(open) {
+            document.body.classList.toggle('mobile-menu-open', open);
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+            panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+        }
+
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            setOpen(!document.body.classList.contains('mobile-menu-open'));
+        });
+
+        panel.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                setOpen(false);
+            });
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!document.body.classList.contains('mobile-menu-open')) {
+                return;
+            }
+            if (panel.contains(event.target) || toggle.contains(event.target)) {
+                return;
+            }
+            setOpen(false);
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                setOpen(false);
+            }
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 1024) {
+                setOpen(false);
+            }
+        });
+    }
+
     function setupRevealAnimations() {
         if (!('IntersectionObserver' in window)) {
             return;
@@ -515,6 +564,7 @@
     setupSmoothScroll();
     setupCompactNavOnScroll();
     setupNavDropdowns();
+    setupMobileMenu();
     setupRevealAnimations();
     setupCardMouseTracking();
     setupMainGlow();
