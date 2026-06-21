@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — CIRPAN Software Development</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="Impressum und rechtliche Angaben von CIRPAN Software Development. Kontaktdaten und gesetzliche Pflichtangaben.">
+  <meta name="keywords" content="Impressum, Kontakt, CIRPAN, Software Development, Wien, Österreich">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style/modern.css">
+  
+  <style>
+    .legal-hero {
+      padding: var(--space-5xl) 0 var(--space-4xl);
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .legal-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+      animation: rotate 30s linear infinite;
+    }
+    
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-4xl) 0;
+    }
+    
+    .legal-section {
+      background: var(--bg-secondary);
+      border: 1px solid var(--gray-800);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      margin-bottom: var(--space-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .legal-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    }
+    
+    .legal-section h2 {
+      color: var(--primary);
+      margin-bottom: var(--space-lg);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .legal-section h3 {
+      color: var(--text-primary);
+      margin: var(--space-xl) 0 var(--space-md);
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    
+    .legal-section p,
+    .legal-section li {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-md);
+    }
+    
+    .legal-section ul {
+      padding-left: var(--space-xl);
+      margin-bottom: var(--space-lg);
+    }
+    
+    .contact-info {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid var(--primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      margin: var(--space-xl) 0;
+    }
+    
+    .contact-info h3 {
+      color: var(--primary);
+      margin-bottom: var(--space-md);
+    }
+    
+    .contact-info p {
+      color: var(--text-primary);
+      margin-bottom: var(--space-sm);
+    }
+    
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color var(--transition-normal);
+    }
+    
+    .contact-info a:hover {
+      color: var(--accent);
+    }
+    
+    @media (max-width: 768px) {
+      .legal-content {
+        padding: var(--space-2xl) var(--space-md);
+      }
+      
+      .legal-section {
+        padding: var(--space-xl);
+        margin-bottom: var(--space-xl);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-container">
+        <a href="index.html" class="navbar-brand">
+          <span style="color: var(--primary);">{</span>
+          <span>CIRPAN</span>
+          <span style="color: var(--primary); animation: blink 1s infinite;">}</span>
+        </a>
+        
+        <ul class="navbar-nav">
+          <li><a href="index.html" class="nav-link">Start</a></li>
+          <li><a href="index.html#about" class="nav-link">Über mich</a></li>
+          <li><a href="index.html#services" class="nav-link">Services</a></li>
+          <li><a href="project.html" class="nav-link">Projekte</a></li>
+          <li><a href="reachOut.html" class="nav-link">Kontakt</a></li>
+        </ul>
+        
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-content">
+      <a href="index.html" class="nav-link">Start</a>
+      <a href="index.html#about" class="nav-link">Über mich</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="project.html" class="nav-link">Projekte</a>
+      <a href="reachOut.html" class="nav-link">Kontakt</a>
+    </div>
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="legal-hero">
+    <div class="container">
+      <h1 class="h1 animate-fade-in-up">Impressum</h1>
+      <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
+        Rechtliche Angaben und Kontaktinformationen
+      </p>
+    </div>
+  </section>
+  
+  <!-- Legal Content -->
+  <section class="section">
+    <div class="container">
+      <div class="legal-content">
+        
+        <!-- Anbieter Information -->
+        <div class="legal-section">
+          <h2>Anbieter</h2>
+          <div class="contact-info">
+            <h3>CIRPAN Software Development</h3>
+            <p><strong>Inhaber:</strong> Oğuzhan Cirpan</p>
+            <p><strong>Adresse:</strong> Wien, Österreich</p>
+            <p><strong>E-Mail:</strong> <a href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a></p>
+            <p><strong>Website:</strong> <a href="https://cirpan.at">https://cirpan.at</a></p>
+          </div>
+        </div>
+        
+        <!-- Haftungsausschluss -->
+        <div class="legal-section">
+          <h2>Haftungsausschluss</h2>
+          
+          <h3>Inhalt des Onlineangebotes</h3>
+          <p>
+            Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder 
+            Qualität der bereitgestellten Informationen. Haftungsansprüche gegen den Autor, welche sich 
+            auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung 
+            der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger 
+            Informationen verursacht wurden, sind grundsätzlich ausgeschlossen.
+          </p>
+          
+          <h3>Verweise und Links</h3>
+          <p>
+            Bei direkten oder indirekten Verweisen auf fremde Internetseiten ("Links"), die außerhalb 
+            des Verantwortungsbereiches des Autors liegen, würde eine Haftungsverpflichtung ausschließlich 
+            in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm 
+            technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern.
+          </p>
+          
+          <h3>Urheberrecht</h3>
+          <p>
+            Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Grafiken, 
+            Tondokumente, Videosequenzen und Texte zu beachten, von ihm selbst erstellte Grafiken, 
+            Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, 
+            Videosequenzen und Texte zurückzugreifen.
+          </p>
+        </div>
+        
+        <!-- Datenschutz -->
+        <div class="legal-section">
+          <h2>Datenschutz</h2>
+          <p>
+            Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder 
+            geschäftlicher Daten (Emailadressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe 
+            dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis.
+          </p>
+          <p>
+            Weitere Informationen zum Datenschutz finden Sie in unserer 
+            <a href="datenschutz.html" class="text-primary hover:text-accent transition">Datenschutzerklärung</a>.
+          </p>
+        </div>
+        
+        <!-- Rechtswirksamkeit -->
+        <div class="legal-section">
+          <h2>Rechtswirksamkeit</h2>
+          <p>
+            Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus 
+            auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes 
+            der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, 
+            bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.
+          </p>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="section-sm bg-secondary">
+    <div class="container">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
+        <div class="col-span-2">
+          <div class="navbar-brand mb-lg">
+            <span style="color: var(--primary);">{</span>
+            <span>CIRPAN</span>
+            <span style="color: var(--primary);">}</span>
+          </div>
+          <p class="text-muted mb-lg">
+            Professionelle Software-Entwicklung mit modernsten Technologien 
+            und ansprechendem Design.
+          </p>
+          <p class="text-sm text-muted">
+            © 2025 CIRPAN Software Development. Alle Rechte vorbehalten.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="mb-lg">Services</h3>
+          <ul class="space-y-sm">
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">iOS Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Android Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Web Entwicklung</a></li>
+            <li><a href="index.html#services" class="text-muted hover:text-primary transition">UI/UX Design</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="mb-lg">Legal</h3>
+          <ul class="space-y-sm">
+            <li><a href="impressum.html" class="text-muted hover:text-primary transition">Impressum</a></li>
+            <li><a href="datenschutz.html" class="text-muted hover:text-primary transition">Datenschutz</a></li>
+            <li><a href="cookies.html" class="text-muted hover:text-primary transition">Cookie-Richtlinie</a></li>
+            <li><a href="agb.html" class="text-muted hover:text-primary transition">AGB</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="js/cookie-consent.js"></script>
+  <script src="js/modern.js"></script>
+  <script>
+    // Diese Funktionalität wird jetzt von modern.js übernommen
+    // Mobile menu wird automatisch initialisiert
+  </script>
+</body>
+</html>

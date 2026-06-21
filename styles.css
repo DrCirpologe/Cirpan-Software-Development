@@ -1,0 +1,440 @@
+body {
+    background-color: #0F0F0F;
+    color: #e5e2e1;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Index page cards */
+body[class*="selection:bg-premium-red/30"] .glass-card {
+    background: rgba(28, 28, 28, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Leistungen + Kontakt cards */
+body[class*="selection:bg-primary-container"] .glass-card {
+    background: rgba(28, 28, 28, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Projekte cards */
+body[class*="selection:bg-primary/30"] .glass-card {
+    background: #1C1C1C;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[class*="selection:bg-primary/30"] .glass-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Make pricing cards 20% smaller and add glow effects */
+@media (min-width: 1024px) {
+    #pricing .glass-card {
+        transform: scale(0.68); /* 20% smaller total */
+        transform-origin: top center;
+        transition: transform 220ms cubic-bezier(0.2,0,0.2,1), box-shadow 220ms ease, border-color 220ms ease;
+        border-color: rgba(229,57,53,0.06);
+    }
+
+    #pricing .glass-card:hover {
+        transform: scale(0.74);
+        border-color: rgba(229,57,53,0.75);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 40px rgba(229,57,53,0.22), 0 0 10px rgba(229,57,53,0.14) inset;
+    }
+
+    /* subtle pulsing glow for emphasized card (e.g., featured) */
+    #pricing .glass-card.shadow-pulse::after {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: inherit;
+        box-shadow: 0 0 48px rgba(229,57,53,0.14);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 300ms ease;
+    }
+    #pricing .glass-card.shadow-pulse:hover::after { opacity: 1; }
+
+    /* Make 'Paket anfragen' text CTAs glow on hover and focus */
+    #pricing .glass-card .pricing-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.4rem 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: rgba(255,255,255,0.75);
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 200ms ease, text-shadow 200ms ease, transform 200ms ease;
+    }
+
+    #pricing .glass-card .pricing-cta:hover,
+    #pricing .glass-card .pricing-cta:focus {
+        color: #ffffff;
+        text-shadow: 0 0 20px rgba(229,57,53,0.35);
+        transform: translateY(-1px);
+        outline: none;
+    }
+
+    #pricing .glass-card .pricing-cta:focus-visible {
+        box-shadow: 0 0 0 3px rgba(229,57,53,0.3);
+    }
+}
+
+.premium-button:active {
+    transform: scale(0.95);
+}
+
+.filter-btn.active {
+    color: #FFFFFF;
+    border-bottom: 2px solid #ffb4ac;
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 32px;
+}
+
+        /* Make 'Paket anfragen' buttons glow on hover, focus and active */
+@media (max-width: 640px) {
+    .masonry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.inner-glow {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ab8985'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5em;
+}
+
+.portfolio-showcase-section {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, rgba(229, 57, 53, 0.16) 0%, rgba(10, 10, 10, 0.9) 36%, #050505 72%);
+    padding: 5rem 0 7rem;
+}
+
+.portfolio-showcase-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.portfolio-headline-wrap {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.portfolio-kicker {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: #E53935;
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-title {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.portfolio-carousel {
+    position: relative;
+    height: 560px;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-carousel::before {
+    content: '';
+    position: absolute;
+    width: min(40vw, 520px);
+    height: min(40vw, 520px);
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(229, 57, 53, 0.35) 0%, rgba(229, 57, 53, 0.08) 45%, rgba(229, 57, 53, 0) 75%);
+    filter: blur(36px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.portfolio-slide {
+    --x: 0px;
+    --y: 0px;
+    --z: 0px;
+    --ry: 0deg;
+    --scale: 1;
+    --opacity: 1;
+    --brightness: 1;
+    --blur: 0px;
+    --contrast: 1;
+    position: absolute;
+    width: min(50vw, 520px);
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transform-style: preserve-3d;
+    transform: translateX(var(--x)) translateY(var(--y)) translateZ(var(--z)) rotateY(var(--ry)) scale(var(--scale));
+    opacity: var(--opacity);
+    filter: brightness(var(--brightness)) blur(var(--blur)) contrast(var(--contrast));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    transition:
+        transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portfolio-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-slide.is-center {
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+.portfolio-slide.is-center:hover {
+    transform: translateX(var(--x)) translateY(var(--y)) translateZ(var(--z)) rotateY(var(--ry)) scale(calc(var(--scale) * 1.03));
+    cursor: pointer;
+    box-shadow: 0 42px 110px rgba(0, 0, 0, 0.65), 0 0 40px rgba(229, 57, 53, 0.22);
+}
+
+@media (max-width: 1024px) {
+    .portfolio-carousel {
+        height: 500px;
+    }
+
+    .portfolio-slide {
+        width: min(66vw, 500px);
+    }
+}
+
+@media (max-width: 640px) {
+    .portfolio-showcase-section {
+        padding: 4rem 0 4.5rem;
+    }
+
+    .portfolio-showcase-inner {
+        padding: 0 20px;
+    }
+
+    .portfolio-carousel {
+        height: 360px;
+    }
+
+    .portfolio-slide {
+        width: min(72vw, 320px);
+    }
+}
+
+/* Compact pricing cards: reduce vertical padding and spacing so three cards fit in viewport */
+@media (min-width: 1024px) {
+    #pricing .glass-card {
+        padding-top: 0.25rem; /* 4px */
+        padding-bottom: 0.25rem; /* 4px */
+    }
+    /* Reduce heading and price spacing inside cards */
+    #pricing .glass-card h3 {
+        margin-bottom: 0.4rem;
+        font-size: 1.05rem;
+        line-height: 1.15;
+    }
+    #pricing .glass-card .mb-6 {
+        margin-bottom: 0.4rem !important;
+    }
+    #pricing .glass-card ul {
+        margin-bottom: 0.4rem;
+    }
+    #pricing .glass-card ul li {
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+        line-height: 1.25;
+    }
+}
+
+/* Make pricing cards 10% smaller and add glowing red border on hover */
+@media (min-width: 1024px) {
+    #pricing .glass-card {
+        transform: scale(0.90);
+        transform-origin: top center;
+        transition: transform 220ms cubic-bezier(0.2,0,0.2,1), box-shadow 220ms ease, border-color 220ms ease;
+        border-color: rgba(229,57,53,0.06);
+    }
+
+    #pricing .glass-card:hover {
+        transform: scale(0.94);
+        border-color: rgba(229,57,53,0.65);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 30px rgba(229,57,53,0.18), 0 0 8px rgba(229,57,53,0.12) inset;
+    }
+
+    /* subtle pulsing glow for emphasized card (e.g., featured) */
+    #pricing .glass-card.shadow-pulse::after {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: inherit;
+        box-shadow: 0 0 40px rgba(229,57,53,0.12);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 300ms ease;
+    }
+    #pricing .glass-card.shadow-pulse:hover::after { opacity: 1; }
+}
+
+
+
+/* WebNova 10/10 Optimierung */
+html { scroll-behavior: smooth; }
+
+#pricing .pricing-grid {
+    align-items: stretch;
+}
+
+#pricing .pricing-card {
+    min-height: 500px;
+    transform: none !important;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+#pricing .pricing-card:hover {
+    transform: translateY(-6px) !important;
+    border-color: rgba(229,57,53,0.5);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.35), 0 0 34px rgba(229,57,53,0.14);
+}
+
+#pricing .pricing-featured {
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    #pricing .pricing-featured {
+        transform: translateY(-10px) !important;
+    }
+    #pricing .pricing-featured:hover {
+        transform: translateY(-16px) !important;
+    }
+}
+
+#pricing .pricing-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    margin-top: 1.5rem;
+    border-radius: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 180ms ease;
+}
+
+#pricing .pricing-button-primary {
+    background: #E53935;
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(229,57,53,0.25);
+}
+
+#pricing .pricing-button-primary:hover {
+    opacity: .92;
+    box-shadow: 0 20px 40px rgba(229,57,53,0.34);
+}
+
+#pricing .pricing-button-secondary {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+#pricing .pricing-button-secondary:hover {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(229,57,53,0.35);
+}
+
+.glass-card {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(229,57,53,0.22);
+}
+
+@media (max-width: 768px) {
+    .portfolio-carousel {
+        height: 360px;
+    }
+}
+
+
+/* Restored showcase rotation */
+.portfolio-carousel{
+    animation:none;
+}
+.portfolio-slide{
+    transition: transform 1000ms cubic-bezier(.22,1,.36,1);
+}
+
+/* Center services heading */
+#services .max-w-3xl{
+    text-align:center;
+}

@@ -1,307 +1,138 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum — CIRPAN Software Development</title>
-  
-  <!-- SEO & Meta -->
-  <meta name="description" content="Impressum und rechtliche Angaben von CIRPAN Software Development. Kontaktdaten und gesetzliche Pflichtangaben.">
-  <meta name="keywords" content="Impressum, Kontakt, CIRPAN, Software Development, Wien, Österreich">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="style/modern.css">
-  
-  <style>
-    .legal-hero {
-      padding: var(--space-5xl) 0 var(--space-4xl);
-      text-align: center;
-      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-      position: relative;
-      overflow: hidden;
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Impressum | WebNova Studio Wien</title>
+<meta name="description" content="Impressum und rechtliche Angaben von WebNova Studio, CIRPAN Software Development, Inhaber Oğuzhan Cirpan in Wien, Österreich."/>
+<meta name="keywords" content="Impressum, WebNova Studio, CIRPAN Software Development, Oğuzhan Cirpan, Wien, Österreich"/>
+<meta name="author" content="Oğuzhan Cirpan"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="language" content="de-AT"/>
+<meta name="geo.region" content="AT-9"/>
+<meta name="geo.placename" content="Wien"/>
+<link rel="canonical" href="https://cirpan-software-development.at/impressum.html"/>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
+<meta name="thumbnail" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta name="image" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Impressum | WebNova Studio Wien"/>
+<meta property="og:description" content="Impressum und rechtliche Angaben von WebNova Studio, CIRPAN Software Development, Inhaber Oğuzhan Cirpan in Wien, Österreich."/>
+<meta property="og:url" content="https://cirpan-software-development.at/impressum.html"/>
+<meta property="og:image" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta property="og:image:secure_url" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta property="og:image:width" content="1280"/>
+<meta property="og:image:height" content="714"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:alt" content="WebNova Studio - Webdesign, SEO und Online-Shops"/>
+<meta property="og:locale" content="de_AT"/>
+<meta property="og:site_name" content="WebNova Studio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Impressum | WebNova Studio Wien"/>
+<meta name="twitter:description" content="Impressum und rechtliche Angaben von WebNova Studio, CIRPAN Software Development, Inhaber Oğuzhan Cirpan in Wien, Österreich."/>
+<meta name="twitter:image" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta name="twitter:image:alt" content="WebNova Studio - Webdesign, SEO und Online-Shops"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Impressum | WebNova Studio Wien",
+  "description": "Impressum und rechtliche Angaben von WebNova Studio, CIRPAN Software Development, Inhaber Oğuzhan Cirpan in Wien, Österreich.",
+  "url": "https://cirpan-software-development.at/impressum.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://cirpan-software-development.at/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Impressum",
+      "item": "https://cirpan-software-development.at/impressum.html"
     }
-    
-    .legal-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
-      animation: rotate 30s linear infinite;
-    }
-    
-    .legal-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: var(--space-4xl) 0;
-    }
-    
-    .legal-section {
-      background: var(--bg-secondary);
-      border: 1px solid var(--gray-800);
-      border-radius: var(--radius-xl);
-      padding: var(--space-2xl);
-      margin-bottom: var(--space-2xl);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .legal-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-    }
-    
-    .legal-section h2 {
-      color: var(--primary);
-      margin-bottom: var(--space-lg);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    
-    .legal-section h3 {
-      color: var(--text-primary);
-      margin: var(--space-xl) 0 var(--space-md);
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    
-    .legal-section p,
-    .legal-section li {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: var(--space-md);
-    }
-    
-    .legal-section ul {
-      padding-left: var(--space-xl);
-      margin-bottom: var(--space-lg);
-    }
-    
-    .contact-info {
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid var(--primary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-xl);
-      margin: var(--space-xl) 0;
-    }
-    
-    .contact-info h3 {
-      color: var(--primary);
-      margin-bottom: var(--space-md);
-    }
-    
-    .contact-info p {
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .contact-info a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color var(--transition-normal);
-    }
-    
-    .contact-info a:hover {
-      color: var(--accent);
-    }
-    
-    @media (max-width: 768px) {
-      .legal-content {
-        padding: var(--space-2xl) var(--space-md);
-      }
-      
-      .legal-section {
-        padding: var(--space-xl);
-        margin-bottom: var(--space-xl);
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-container">
-        <a href="index.html" class="navbar-brand">
-          <span style="color: var(--primary);">{</span>
-          <span>CIRPAN</span>
-          <span style="color: var(--primary); animation: blink 1s infinite;">}</span>
-        </a>
-        
-        <ul class="navbar-nav">
-          <li><a href="index.html" class="nav-link">Start</a></li>
-          <li><a href="index.html#about" class="nav-link">Über mich</a></li>
-          <li><a href="index.html#services" class="nav-link">Services</a></li>
-          <li><a href="project.html" class="nav-link">Projekte</a></li>
-          <li><a href="reachOut.html" class="nav-link">Kontakt</a></li>
-        </ul>
-        
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"text-secondary":"rgba(255,255,255,0.7)","surface-container-lowest":"#0e0e0e","surface-base":"#0F0F0F","on-surface":"#e5e2e1","primary":"#ffb4ac","primary-container":"#ff544c","premium-red":"#E53935","border-glass":"rgba(255,255,255,0.08)","text-muted":"rgba(255,255,255,0.4)"},spacing:{"gutter":"32px","section-padding-desktop":"160px","container-max-width":"1440px","section-padding-mobile":"80px"},fontFamily:{"headline-h1":["Hanken Grotesk"],"headline-h3":["Hanken Grotesk"],"headline-h1-mobile":["Hanken Grotesk"],"headline-h2":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"label-caps":["JetBrains Mono"]},fontSize:{"headline-h1":["64px",{"lineHeight":"1.2","letterSpacing":"0","fontWeight":"700"}],"headline-h1-mobile":["40px",{"lineHeight":"1.2","letterSpacing":"0","fontWeight":"700"}],"headline-h2":["40px",{"lineHeight":"1.3","letterSpacing":"0","fontWeight":"600"}],"headline-h3":["24px",{"lineHeight":"1.4","letterSpacing":"0","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}],"label-caps":["12px",{"lineHeight":"1.2","letterSpacing":"0.1em","fontWeight":"500"}]}}}}</script>
+<link href="assets/styles.css" rel="stylesheet"/></head>
+<body class="bg-surface-base text-on-surface selection:bg-premium-red/30">
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200"><nav class="flex justify-between items-center h-20 px-gutter max-w-container-max-width mx-auto"><a class="flex items-center gap-3 font-headline-h3 text-headline-h3 font-bold text-gray-900" href="index.html"><img src="assets/logo1.png" alt="WebNova Studio Logo" class="h-7 w-auto"/><span>WebNova Studio</span></a><div class="hidden md:flex items-center gap-8"><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="index.html">Startseite</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="leistungen.html">Leistungen</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="preise.html">Preise</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="projekte.html">Projekte</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="ueber-uns.html">Über uns</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="kontakt.html">Kontakt</a></div><a href="kontakt.html" class="bg-[#E53935] text-white px-6 py-3 rounded-xl font-label-caps text-label-caps hover:opacity-80 transition-opacity hidden sm:block">Erstgespräch</a></nav></header>
+<main class="pt-20"><section class="max-w-container-max-width mx-auto px-gutter py-20 md:py-28"><div class="max-w-4xl"><span class="font-label-caps text-label-caps text-primary mb-5 block uppercase tracking-[0.2em]">Rechtliche Angaben</span><h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-white mb-6">Impressum</h1><p class="font-body-lg text-body-lg text-text-secondary max-w-3xl">Informationspflicht laut § 5 Abs. 1 E-Commerce-Gesetz (ECG), § 25 Mediengesetz (MedienG) sowie Offenlegung gemäß § 63 Gewerbeordnung (GewO), soweit anwendbar.</p></div></section>
+<section class="max-w-5xl mx-auto px-gutter pb-24 md:pb-32"><div class="glass-card rounded-2xl p-8 md:p-10 space-y-8">
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Medieninhaber / Diensteanbieter</h2><p class="font-body-md text-body-md text-text-secondary">CIRPAN Software Development<br/>WebNova Studio<br/>Inhaber: Oğuzhan Cirpan<br/>Wien, Österreich</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Kontakt</h2><p class="font-body-md text-body-md text-text-secondary">E-Mail: <a class="text-primary hover:text-white" href="mailto:office@webnovastudio.at">office@webnovastudio.at</a><br/>Telefon: <a class="text-primary hover:text-white" href="tel:+436506803019">+43 650 6803019</a><br/>Website: webnovastudio.at</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Unternehmensgegenstand</h2><p class="font-body-md text-body-md text-text-secondary">Webdesign, Website-Erstellung, WordPress Websites, WooCommerce Online-Shops, Shopify Shops, SEO, Wartung, Betreuung, UI/UX Design, Beratung und verwandte digitale Dienstleistungen.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Rechtsform</h2><p class="font-body-md text-body-md text-text-secondary">Einzelunternehmen</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Gewerbe und Aufsicht</h2><p class="font-body-md text-body-md text-text-secondary">Gewerbe nach österreichischem Recht. Die zuständige Aufsicht hängt von der Gewerbemeldung und dem Standort ab, zum Beispiel Magistrat der Stadt Wien oder Bezirkshauptmannschaft.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Umsatzsteuer</h2><p class="font-body-md text-body-md text-text-secondary">Es liegt ein Kleinunternehmen im Sinne von § 6 Abs. 1 Z 27 UStG vor. Es wird daher keine Umsatzsteuer berechnet und es wird keine UID ausgewiesen.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Haftungsausschluss für eigene Inhalte</h2><p class="font-body-md text-body-md text-text-secondary">Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen. Als Diensteanbieter sind wir gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten nach den einschlägigen österreichischen und europäischen Vorschriften verantwortlich.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Datenschutz</h2><p class="font-body-md text-body-md text-text-secondary">Soweit innerhalb dieser Website personenbezogene Daten eingegeben werden können, erfolgt dies freiwillig. Weitere Informationen finden Sie in der <a class="text-primary hover:text-white" href="datenschutz.html">Datenschutzerklärung</a>.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Urheberrecht</h2><p class="font-body-md text-body-md text-text-secondary">Alle Inhalte dieser Website, insbesondere Texte, Bilder, Grafiken, Layouts und Designs, unterliegen dem Urheberrecht bzw. weiteren Schutzrechten. Eine Vervielfältigung, Verbreitung oder sonstige Nutzung ohne vorherige ausdrückliche Zustimmung ist nicht gestattet.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Links zu anderen Websites</h2><p class="font-body-md text-body-md text-text-secondary">Für Inhalte externer Websites, auf die von dieser Website verlinkt wird, übernehmen wir keine Haftung. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiberinnen und Betreiber verantwortlich. Zum Zeitpunkt der Verlinkung waren keine rechtswidrigen Inhalte erkennbar.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">Rechtswirksamkeit</h2><p class="font-body-md text-body-md text-text-secondary">Sollten einzelne Formulierungen oder Teile dieses Impressums der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen, bleiben die übrigen Teile in Inhalt und Gültigkeit unberührt.</p></div>
+<div class="border-t border-border-glass pt-6"><p class="font-body-md text-body-md text-text-secondary">Stand: April 2026. Bitte vor Veröffentlichung prüfen, ob zusätzliche Pflichtangaben wie genaue Geschäftsanschrift, Gewerbebehörde oder Kammerzugehörigkeit erforderlich sind.</p></div>
+</div></section></main>
+<footer class="bg-surface-container-lowest w-full border-t border-border-glass">
+  <div class="max-w-container-max-width mx-auto px-gutter py-16 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
+      <div class="space-y-4">
+        <h3 class="font-headline-h3 text-headline-h3 font-bold text-on-surface">WebNova Studio</h3>
+        <p class="font-body-md text-body-md text-text-secondary max-w-xs">Digitale Lösungen für Unternehmen in Österreich</p>
+        <p class="font-body-md text-body-md text-text-secondary max-w-xs">Websites, Shops, SEO &amp; mehr</p>
       </div>
-    </div>
-  </nav>
-  
-  <!-- Mobile Navigation -->
-  <div class="mobile-nav" id="mobile-nav">
-    <div class="mobile-nav-content">
-      <a href="index.html" class="nav-link">Start</a>
-      <a href="index.html#about" class="nav-link">Über mich</a>
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="project.html" class="nav-link">Projekte</a>
-      <a href="reachOut.html" class="nav-link">Kontakt</a>
+      <div class="space-y-4">
+        <h5 class="font-label-caps text-label-caps text-premium-red uppercase tracking-[0.16em]">Leistungen</h5>
+        <ul class="space-y-2">
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#wordpress">WordPress Websites</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#woocommerce">WooCommerce Online-Shop</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#shopify">Shopify Shops</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#buchung">Buchungssysteme</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#seo">SEO-Optimierung</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#wartung">Laufende Betreuung</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="font-label-caps text-label-caps text-premium-red uppercase tracking-[0.16em]">Navigation</h5>
+        <ul class="space-y-2">
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="index.html">Start</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html">Leistungen</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="preise.html">Preise</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="projekte.html">Projekte</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="ueber-uns.html">Über uns</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="font-label-caps text-label-caps text-premium-red uppercase tracking-[0.16em]">Kontakt</h5>
+        <div class="space-y-2 font-body-md text-body-md text-text-secondary">
+          <p><a class="hover:text-on-surface transition-colors" href="tel:+436506803019">+43 650 6803019</a></p>
+          <p><a class="hover:text-on-surface transition-colors" href="mailto:office@webnovastudio.at">office@webnovastudio.at</a></p>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <!-- Hero Section -->
-  <section class="legal-hero">
-    <div class="container">
-      <h1 class="h1 animate-fade-in-up">Impressum</h1>
-      <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
-        Rechtliche Angaben und Kontaktinformationen
-      </p>
-    </div>
-  </section>
-  
-  <!-- Legal Content -->
-  <section class="section">
-    <div class="container">
-      <div class="legal-content">
-        
-        <!-- Anbieter Information -->
-        <div class="legal-section">
-          <h2>Anbieter</h2>
-          <div class="contact-info">
-            <h3>CIRPAN Software Development</h3>
-            <p><strong>Inhaber:</strong> Oğuzhan Cirpan</p>
-            <p><strong>Adresse:</strong> Wien, Österreich</p>
-            <p><strong>E-Mail:</strong> <a href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a></p>
-            <p><strong>Website:</strong> <a href="https://cirpan.at">https://cirpan.at</a></p>
-          </div>
-        </div>
-        
-        <!-- Haftungsausschluss -->
-        <div class="legal-section">
-          <h2>Haftungsausschluss</h2>
-          
-          <h3>Inhalt des Onlineangebotes</h3>
-          <p>
-            Der Autor übernimmt keinerlei Gewähr für die Aktualität, Korrektheit, Vollständigkeit oder 
-            Qualität der bereitgestellten Informationen. Haftungsansprüche gegen den Autor, welche sich 
-            auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung 
-            der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger 
-            Informationen verursacht wurden, sind grundsätzlich ausgeschlossen.
-          </p>
-          
-          <h3>Verweise und Links</h3>
-          <p>
-            Bei direkten oder indirekten Verweisen auf fremde Internetseiten ("Links"), die außerhalb 
-            des Verantwortungsbereiches des Autors liegen, würde eine Haftungsverpflichtung ausschließlich 
-            in dem Fall in Kraft treten, in dem der Autor von den Inhalten Kenntnis hat und es ihm 
-            technisch möglich und zumutbar wäre, die Nutzung im Falle rechtswidriger Inhalte zu verhindern.
-          </p>
-          
-          <h3>Urheberrecht</h3>
-          <p>
-            Der Autor ist bestrebt, in allen Publikationen die Urheberrechte der verwendeten Grafiken, 
-            Tondokumente, Videosequenzen und Texte zu beachten, von ihm selbst erstellte Grafiken, 
-            Tondokumente, Videosequenzen und Texte zu nutzen oder auf lizenzfreie Grafiken, Tondokumente, 
-            Videosequenzen und Texte zurückzugreifen.
-          </p>
-        </div>
-        
-        <!-- Datenschutz -->
-        <div class="legal-section">
-          <h2>Datenschutz</h2>
-          <p>
-            Sofern innerhalb des Internetangebotes die Möglichkeit zur Eingabe persönlicher oder 
-            geschäftlicher Daten (Emailadressen, Namen, Anschriften) besteht, so erfolgt die Preisgabe 
-            dieser Daten seitens des Nutzers auf ausdrücklich freiwilliger Basis.
-          </p>
-          <p>
-            Weitere Informationen zum Datenschutz finden Sie in unserer 
-            <a href="datenschutz.html" class="text-primary hover:text-accent transition">Datenschutzerklärung</a>.
-          </p>
-        </div>
-        
-        <!-- Rechtswirksamkeit -->
-        <div class="legal-section">
-          <h2>Rechtswirksamkeit</h2>
-          <p>
-            Dieser Haftungsausschluss ist als Teil des Internetangebotes zu betrachten, von dem aus 
-            auf diese Seite verwiesen wurde. Sofern Teile oder einzelne Formulierungen dieses Textes 
-            der geltenden Rechtslage nicht, nicht mehr oder nicht vollständig entsprechen sollten, 
-            bleiben die übrigen Teile des Dokumentes in ihrem Inhalt und ihrer Gültigkeit davon unberührt.
-          </p>
-        </div>
-        
+  <div class="border-t border-border-glass bg-black/20">
+    <div class="max-w-container-max-width mx-auto px-gutter py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="datenschutz.html">Datenschutz</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="impressum.html">Impressum</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="agb.html">AGB</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="cookies.html">Cookies</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="faq.html">FAQ</a>
       </div>
+      <p class="font-body-md text-[14px] text-text-muted">© 2026 WebNova Studio</p>
     </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="section-sm bg-secondary">
-    <div class="container">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
-        <div class="col-span-2">
-          <div class="navbar-brand mb-lg">
-            <span style="color: var(--primary);">{</span>
-            <span>CIRPAN</span>
-            <span style="color: var(--primary);">}</span>
-          </div>
-          <p class="text-muted mb-lg">
-            Professionelle Software-Entwicklung mit modernsten Technologien 
-            und ansprechendem Design.
-          </p>
-          <p class="text-sm text-muted">
-            © 2025 CIRPAN Software Development. Alle Rechte vorbehalten.
-          </p>
-        </div>
-        
-        <div>
-          <h3 class="mb-lg">Services</h3>
-          <ul class="space-y-sm">
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">iOS Entwicklung</a></li>
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Android Entwicklung</a></li>
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Web Entwicklung</a></li>
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">UI/UX Design</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="mb-lg">Legal</h3>
-          <ul class="space-y-sm">
-            <li><a href="impressum.html" class="text-muted hover:text-primary transition">Impressum</a></li>
-            <li><a href="datenschutz.html" class="text-muted hover:text-primary transition">Datenschutz</a></li>
-            <li><a href="cookies.html" class="text-muted hover:text-primary transition">Cookie-Richtlinie</a></li>
-            <li><a href="agb.html" class="text-muted hover:text-primary transition">AGB</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- Scripts -->
-  <script src="js/cookie-consent.js"></script>
-  <script src="js/modern.js"></script>
-  <script>
-    // Diese Funktionalität wird jetzt von modern.js übernommen
-    // Mobile menu wird automatisch initialisiert
-  </script>
-</body>
-</html>
+  </div>
+</footer>
+<script src="assets/scripts.js"></script></body></html>

@@ -1,0 +1,1018 @@
+body {
+    background-color: #0F0F0F;
+    color: #e5e2e1;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Index page cards */
+body[class*="selection:bg-premium-red/30"] .glass-card {
+    background: rgba(28, 28, 28, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Leistungen + Kontakt cards */
+body[class*="selection:bg-primary-container"] .glass-card {
+    background: rgba(28, 28, 28, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Projekte cards */
+body[class*="selection:bg-primary/30"] .glass-card {
+    background: #1C1C1C;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body[class*="selection:bg-primary/30"] .glass-card:hover {
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.contact-hero-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 3rem 0 2.5rem;
+    border-bottom: 1px solid transparent;
+    background: transparent;
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.contact-hero-section::before {
+    content: none;
+}
+
+.contact-hero-section::after {
+    content: none;
+}
+
+.contact-hero-section:hover,
+.contact-hero-section:active {
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.contact-hero-section:hover::before,
+.contact-hero-section:active::before {
+    content: none;
+}
+
+.contact-hero-section:hover::after,
+.contact-hero-section:active::after {
+    content: none;
+}
+
+.contact-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 210px;
+}
+
+.contact-step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    min-height: 84px;
+    padding: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.025);
+    backdrop-filter: blur(14px);
+    transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, background-color 180ms ease;
+}
+
+.contact-step-item:hover,
+.contact-step-item:active {
+    border-color: rgba(229, 57, 53, 0.32);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.32), 0 0 16px rgba(229, 57, 53, 0.075);
+    transform: translateY(-1px);
+}
+
+.contact-step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex: 0 0 2.25rem;
+    border-radius: 9999px;
+    background: #E53935;
+    color: #ffffff;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.contact-form-anchor {
+    margin-top: clamp(6rem, 16vh, 11rem);
+}
+
+@media (max-width: 768px) {
+    .contact-hero-section {
+        padding: 2.75rem 0 2.25rem;
+    }
+
+    .contact-steps-grid {
+        grid-template-columns: 1fr;
+        margin-top: 4rem;
+    }
+
+    .contact-form-anchor {
+        margin-top: 4rem;
+    }
+}
+
+header.fixed,
+nav.fixed {
+    transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+header.fixed > nav,
+header.fixed > div,
+nav.fixed > div {
+    transition: height 220ms ease, padding-top 220ms ease, padding-bottom 220ms ease;
+}
+
+header.fixed img,
+nav.fixed img,
+header.fixed a,
+nav.fixed a,
+header.fixed button,
+nav.fixed button,
+header.fixed .hidden,
+nav.fixed .hidden {
+    transition: transform 220ms ease, font-size 220ms ease, padding 220ms ease, gap 220ms ease, opacity 220ms ease;
+}
+
+body.nav-is-compact header.fixed,
+body.nav-is-compact nav.fixed {
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.12);
+}
+
+body.nav-is-compact header.fixed[class*="bg-white"] {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.nav-is-compact header.fixed:not([class*="bg-white"]),
+body.nav-is-compact nav.fixed {
+    background-color: rgba(15, 15, 15, 0.9);
+}
+
+body.nav-is-compact header.fixed > nav,
+body.nav-is-compact header.fixed > div,
+body.nav-is-compact nav.fixed > div {
+    height: 3.75rem;
+}
+
+body.nav-is-compact header.fixed img,
+body.nav-is-compact nav.fixed img {
+    transform: scale(0.82);
+}
+
+body.nav-is-compact header.fixed a,
+body.nav-is-compact nav.fixed a {
+    font-size: 0.92em;
+}
+
+body.nav-is-compact header.fixed a:first-child,
+body.nav-is-compact nav.fixed a:first-child {
+    gap: 0.5rem;
+    transform: scale(0.94);
+    transform-origin: left center;
+}
+
+body.nav-is-compact header.fixed button,
+body.nav-is-compact nav.fixed button {
+    padding: 0.55rem 1rem;
+    transform: scale(0.94);
+    transform-origin: right center;
+}
+
+body.nav-is-compact header.fixed .hidden.md\:flex,
+body.nav-is-compact nav.fixed .hidden.md\:flex,
+body.nav-is-compact header.fixed nav.hidden,
+body.nav-is-compact nav.fixed nav.hidden {
+    gap: 1.35rem;
+}
+
+.nav-dropdown {
+    display: flex;
+    align-items: center;
+}
+
+.nav-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -1rem;
+    right: -1rem;
+    height: 2.5rem;
+}
+
+.nav-dropdown-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font: inherit;
+}
+
+.nav-dropdown-trigger .material-symbols-outlined {
+    transition: transform 180ms ease;
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 2.5rem);
+    left: 50%;
+    width: 290px;
+    padding: 0.55rem;
+    border: 1px solid rgba(15, 15, 15, 0.08);
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18), 0 0 24px rgba(229, 57, 53, 0.08);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 8px) scale(0.98);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 0.75rem 0.85rem;
+    border-radius: 0.5rem;
+    color: rgba(17, 17, 17, 0.78);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: background-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus {
+    color: #111111;
+    background: rgba(229, 57, 53, 0.1);
+    transform: translateX(2px);
+    outline: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0) scale(1);
+}
+
+.nav-dropdown:hover .nav-dropdown-trigger .material-symbols-outlined,
+.nav-dropdown:focus-within .nav-dropdown-trigger .material-symbols-outlined,
+.nav-dropdown.is-open .nav-dropdown-trigger .material-symbols-outlined {
+    transform: rotate(180deg);
+}
+
+/* Make pricing cards 20% smaller and add glow effects */
+@media (min-width: 1024px) {
+    #pricing .glass-card {
+        transform: scale(0.68); /* 20% smaller total */
+        transform-origin: top center;
+        transition: transform 220ms cubic-bezier(0.2,0,0.2,1), box-shadow 220ms ease, border-color 220ms ease;
+        border-color: rgba(229,57,53,0.06);
+    }
+
+    #pricing .glass-card:hover {
+        transform: scale(0.74);
+        border-color: rgba(229,57,53,0.75);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 40px rgba(229,57,53,0.22), 0 0 10px rgba(229,57,53,0.14) inset;
+    }
+
+    /* subtle pulsing glow for emphasized card (e.g., featured) */
+    #pricing .glass-card.shadow-pulse::after {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: inherit;
+        box-shadow: 0 0 48px rgba(229,57,53,0.14);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 300ms ease;
+    }
+    #pricing .glass-card.shadow-pulse:hover::after { opacity: 1; }
+
+    /* Make 'Paket anfragen' text CTAs glow on hover and focus */
+    #pricing .glass-card .pricing-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        padding: 0.4rem 0;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: rgba(255,255,255,0.75);
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: color 200ms ease, text-shadow 200ms ease, transform 200ms ease;
+    }
+
+    #pricing .glass-card .pricing-cta:hover,
+    #pricing .glass-card .pricing-cta:focus {
+        color: #ffffff;
+        text-shadow: 0 0 20px rgba(229,57,53,0.35);
+        transform: translateY(-1px);
+        outline: none;
+    }
+
+    #pricing .glass-card .pricing-cta:focus-visible {
+        box-shadow: 0 0 0 3px rgba(229,57,53,0.3);
+    }
+}
+
+.premium-button:active {
+    transform: scale(0.95);
+}
+
+#projekt-starten {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.projekt-starten-copy {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.projekt-starten-actions {
+    position: relative;
+    isolation: isolate;
+}
+
+.projekt-starten-actions::before {
+    content: '';
+    position: absolute;
+    inset: -64px -56px;
+    z-index: -1;
+    border-radius: 32px;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(229, 57, 53, 0.3) 0%, rgba(229, 57, 53, 0.14) 38%, rgba(229, 57, 53, 0) 72%),
+        radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 48%);
+    filter: blur(34px);
+    opacity: 0;
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.projekt-starten-actions:hover::before,
+.projekt-starten-actions:active::before {
+    opacity: 0.48;
+    transform: scale(1.02);
+}
+
+@keyframes projekt-starten-right-glow {
+    0%, 100% {
+        opacity: 0.22;
+        transform: scale(0.98);
+    }
+    50% {
+        opacity: 0.62;
+        transform: scale(1.04);
+    }
+}
+
+#services .glass-card,
+#branchen .glass-card,
+#inklusive .glass-card,
+#warum-webnova .glass-card,
+#ablauf .glass-card,
+.faq-accordion,
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card,
+.leistungen-page main > section:nth-of-type(3) .glass-card,
+.leistungen-page main > section:nth-of-type(4) .glass-card,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+#services .glass-card > *,
+#branchen .glass-card > *,
+#inklusive .glass-card > *,
+#warum-webnova .glass-card > *,
+#ablauf .glass-card > *,
+.faq-accordion > *,
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card > *,
+.leistungen-page main > section:nth-of-type(3) .glass-card > *,
+.leistungen-page main > section:nth-of-type(4) .glass-card > *,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card > *,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+#services .glass-card::before,
+#branchen .glass-card::before,
+#inklusive .glass-card::before,
+#warum-webnova .glass-card::before,
+#ablauf .glass-card::before,
+.faq-accordion::before,
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card::before,
+.leistungen-page main > section:nth-of-type(3) .glass-card::before,
+.leistungen-page main > section:nth-of-type(4) .glass-card::before,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card::before,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: -35%;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 70% 20%, rgba(229, 57, 53, 0.22) 0%, rgba(229, 57, 53, 0.08) 34%, rgba(229, 57, 53, 0) 66%),
+        radial-gradient(circle at 20% 90%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 48%);
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(0.96);
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+#services .glass-card:hover,
+#branchen .glass-card:hover,
+#inklusive .glass-card:hover,
+#warum-webnova .glass-card:hover,
+#ablauf .glass-card:hover,
+#services .glass-card:active,
+#branchen .glass-card:active,
+#inklusive .glass-card:active,
+#warum-webnova .glass-card:active,
+#ablauf .glass-card:active,
+.faq-accordion:hover,
+.faq-accordion:active,
+.faq-accordion[open],
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card:hover,
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card:active,
+.leistungen-page main > section:nth-of-type(3) .glass-card:hover,
+.leistungen-page main > section:nth-of-type(3) .glass-card:active,
+.leistungen-page main > section:nth-of-type(4) .glass-card:hover,
+.leistungen-page main > section:nth-of-type(4) .glass-card:active,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card:hover,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card:active,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card:hover,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card:active {
+    border-color: rgba(229, 57, 53, 0.28);
+    box-shadow: 0 20px 46px rgba(0, 0, 0, 0.34), 0 0 34px rgba(229, 57, 53, 0.18);
+    transform: translateY(-2px);
+}
+
+#services .glass-card:hover::before,
+#branchen .glass-card:hover::before,
+#inklusive .glass-card:hover::before,
+#warum-webnova .glass-card:hover::before,
+#ablauf .glass-card:hover::before,
+#services .glass-card:active::before,
+#branchen .glass-card:active::before,
+#inklusive .glass-card:active::before,
+#warum-webnova .glass-card:active::before,
+#ablauf .glass-card:active::before,
+.faq-accordion:hover::before,
+.faq-accordion:active::before,
+.faq-accordion[open]::before,
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card:hover::before,
+.leistungen-page main > section:nth-of-type(2) article.glass-card .glass-card:active::before,
+.leistungen-page main > section:nth-of-type(3) .glass-card:hover::before,
+.leistungen-page main > section:nth-of-type(3) .glass-card:active::before,
+.leistungen-page main > section:nth-of-type(4) .glass-card:hover::before,
+.leistungen-page main > section:nth-of-type(4) .glass-card:active::before,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card:hover::before,
+.ueber-uns-page main > section:nth-of-type(3) .glass-card:active::before,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card:hover::before,
+.ueber-uns-page main > section:nth-of-type(4) .glass-card:active::before {
+    opacity: 0.48;
+    transform: scale(1.04);
+}
+
+.filter-btn.active {
+    color: #FFFFFF;
+    border-bottom: 2px solid #ffb4ac;
+}
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 32px;
+}
+
+        /* Make 'Paket anfragen' buttons glow on hover, focus and active */
+@media (max-width: 640px) {
+    .masonry-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.inner-glow {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23ab8985'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.5em;
+}
+
+.portfolio-showcase-section {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    padding: 5rem 0 7rem;
+}
+
+.portfolio-showcase-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.portfolio-headline-wrap {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.portfolio-kicker {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: #E53935;
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-title {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #fff;
+}
+
+.portfolio-carousel {
+    position: relative;
+    height: 560px;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-carousel::before {
+    content: none;
+}
+
+.portfolio-slide {
+    --x: 0px;
+    --y: 0px;
+    --z: 0px;
+    --ry: 0deg;
+    --scale: 1;
+    --opacity: 1;
+    --brightness: 1;
+    --blur: 0px;
+    --contrast: 1;
+    position: absolute;
+    width: min(50vw, 520px);
+    aspect-ratio: 16 / 10;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transform-style: preserve-3d;
+    transform: translateX(var(--x)) translateY(var(--y)) translateZ(var(--z)) rotateY(var(--ry)) scale(var(--scale));
+    opacity: var(--opacity);
+    filter: brightness(var(--brightness)) blur(var(--blur)) contrast(var(--contrast));
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+    transition:
+        transform 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        filter 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portfolio-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio-slide.is-center {
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+.portfolio-slide.is-center:hover {
+    transform: translateX(var(--x)) translateY(var(--y)) translateZ(var(--z)) rotateY(var(--ry)) scale(calc(var(--scale) * 1.03));
+    cursor: pointer;
+    box-shadow: 0 42px 110px rgba(0, 0, 0, 0.65);
+}
+
+@media (max-width: 1024px) {
+    .portfolio-carousel {
+        height: 500px;
+    }
+
+    .portfolio-slide {
+        width: min(66vw, 500px);
+    }
+}
+
+@media (max-width: 640px) {
+    .portfolio-showcase-section {
+        padding: 4rem 0 4.5rem;
+    }
+
+    .portfolio-showcase-inner {
+        padding: 0 20px;
+    }
+
+    .portfolio-carousel {
+        height: 360px;
+    }
+
+    .portfolio-slide {
+        width: min(72vw, 320px);
+    }
+}
+
+/* Compact pricing cards: reduce vertical padding and spacing so three cards fit in viewport */
+@media (min-width: 1024px) {
+    #pricing .glass-card {
+        padding-top: 0.25rem; /* 4px */
+        padding-bottom: 0.25rem; /* 4px */
+    }
+    /* Reduce heading and price spacing inside cards */
+    #pricing .glass-card h3 {
+        margin-bottom: 0.4rem;
+        font-size: 1.05rem;
+        line-height: 1.15;
+    }
+    #pricing .glass-card .mb-6 {
+        margin-bottom: 0.4rem !important;
+    }
+    #pricing .glass-card ul {
+        margin-bottom: 0.4rem;
+    }
+    #pricing .glass-card ul li {
+        padding-top: 0.15rem;
+        padding-bottom: 0.15rem;
+        line-height: 1.25;
+    }
+}
+
+/* Make pricing cards 10% smaller and add glowing red border on hover */
+@media (min-width: 1024px) {
+    #pricing .glass-card {
+        transform: scale(0.90);
+        transform-origin: top center;
+        transition: transform 220ms cubic-bezier(0.2,0,0.2,1), box-shadow 220ms ease, border-color 220ms ease;
+        border-color: rgba(229,57,53,0.06);
+    }
+
+    #pricing .glass-card:hover {
+        transform: scale(0.94);
+        border-color: rgba(229,57,53,0.65);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.45), 0 0 30px rgba(229,57,53,0.18), 0 0 8px rgba(229,57,53,0.12) inset;
+    }
+
+    /* subtle pulsing glow for emphasized card (e.g., featured) */
+    #pricing .glass-card.shadow-pulse::after {
+        content: '';
+        position: absolute;
+        inset: -6px;
+        border-radius: inherit;
+        box-shadow: 0 0 40px rgba(229,57,53,0.12);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 300ms ease;
+    }
+    #pricing .glass-card.shadow-pulse:hover::after { opacity: 1; }
+}
+
+
+
+/* WebNova 10/10 Optimierung */
+html { scroll-behavior: smooth; }
+
+#pricing .pricing-grid {
+    align-items: stretch;
+}
+
+#pricing .pricing-card {
+    min-height: 500px;
+    transform: none !important;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+#pricing .pricing-card:hover {
+    transform: translateY(-6px) !important;
+    border-color: rgba(229,57,53,0.5);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.35), 0 0 34px rgba(229,57,53,0.14);
+}
+
+#pricing .pricing-featured {
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    #pricing .pricing-featured {
+        transform: translateY(-10px) !important;
+    }
+    #pricing .pricing-featured:hover {
+        transform: translateY(-16px) !important;
+    }
+}
+
+#pricing .pricing-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    margin-top: 1.5rem;
+    border-radius: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 180ms ease;
+}
+
+#pricing .pricing-button-primary {
+    background: #E53935;
+    color: #fff;
+    box-shadow: 0 16px 30px rgba(229,57,53,0.25);
+}
+
+#pricing .pricing-button-primary:hover {
+    opacity: .92;
+    box-shadow: 0 20px 40px rgba(229,57,53,0.34);
+}
+
+#pricing .pricing-button-secondary {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.10);
+}
+
+#pricing .pricing-button-secondary:hover {
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(229,57,53,0.35);
+}
+
+.glass-card {
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(229,57,53,0.22);
+}
+
+.preise-page .glass-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.preise-page .pricing-featured {
+    overflow: visible;
+}
+
+.preise-page .glass-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.preise-page .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: -35%;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(229, 57, 53, 0.24), rgba(229, 57, 53, 0.10) 24%, transparent 52%);
+    opacity: 0;
+    transform: scale(0.82);
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.preise-page .glass-card:hover,
+.preise-page .glass-card:active {
+    transform: translateY(-5px);
+    border-color: rgba(229, 57, 53, 0.56);
+    background: rgba(255, 255, 255, 0.075);
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.42),
+        0 0 38px rgba(229, 57, 53, 0.22),
+        inset 0 0 26px rgba(229, 57, 53, 0.10);
+}
+
+.preise-page .glass-card:hover::before,
+.preise-page .glass-card:active::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.preise-page .pricing-card li {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.preise-page .pricing-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 9999px;
+    background: #E53935;
+    box-shadow: 0 0 10px rgba(229, 57, 53, 0.38);
+}
+
+.faq-accordion {
+    padding: 0;
+    transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.faq-accordion summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-accordion .material-symbols-outlined {
+    color: #E53935;
+    transition: transform 180ms ease;
+}
+
+.faq-accordion[open] .material-symbols-outlined {
+    transform: rotate(180deg);
+}
+
+.faq-accordion p {
+    padding: 0 1.5rem 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.faq-accordion summary:hover .material-symbols-outlined,
+.faq-accordion summary:focus-visible .material-symbols-outlined {
+    transform: translateY(2px);
+}
+
+.faq-accordion[open] summary:hover .material-symbols-outlined,
+.faq-accordion[open] summary:focus-visible .material-symbols-outlined {
+    transform: rotate(180deg) translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .portfolio-carousel {
+        height: 360px;
+    }
+}
+
+main {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(9, 9, 9, 1), rgba(13, 11, 11, 0.98) 52%, rgba(8, 8, 8, 1));
+}
+
+main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(circle at var(--main-mouse-x, 72%) var(--main-mouse-y, 32%), rgba(229, 57, 53, 0.07), rgba(229, 57, 53, 0.026) 2%, transparent 4.5%);
+    opacity: 0;
+    transition: opacity 180ms ease;
+    pointer-events: none;
+}
+
+body.contact-page main::before {
+    background: radial-gradient(circle at var(--main-mouse-x, 72%) var(--main-mouse-y, 32%), rgba(229, 57, 53, 0.075), rgba(229, 57, 53, 0.028) 6%, transparent 12%);
+}
+
+main::after {
+    content: none;
+}
+
+main:hover::before {
+    opacity: 1;
+}
+
+main > * {
+    position: relative;
+    z-index: 1;
+}
+
+main > section {
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    background: transparent !important;
+}
+
+main > section::before,
+main > section::after {
+    pointer-events: none;
+}
+
+header.fixed nav > div a,
+header.fixed .nav-dropdown-trigger {
+    position: relative;
+    border-bottom-color: transparent !important;
+    padding-bottom: 0.35rem;
+}
+
+header.fixed nav > div a::after,
+header.fixed .nav-dropdown-trigger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.1rem;
+    height: 2px;
+    border-radius: 9999px;
+    background: #E53935;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 260ms ease;
+}
+
+header.fixed nav > div a:hover::after,
+header.fixed nav > div a:focus-visible::after,
+header.fixed nav > div a:active::after,
+header.fixed .nav-dropdown:hover .nav-dropdown-trigger::after,
+header.fixed .nav-dropdown:focus-within .nav-dropdown-trigger::after,
+header.fixed .nav-dropdown-trigger:active::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}

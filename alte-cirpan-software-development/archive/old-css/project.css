@@ -1,0 +1,407 @@
+
+/* === Grundlayout === */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background-color: #121212;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+  
+    body::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 1;
+      z-index: -1;
+    }
+
+    body::before {
+      background: linear-gradient(45deg, #FFD439, transparent);
+      bottom: -100px;
+      left: -100px;
+      width: 480px;
+      height: 480px;
+    }
+
+    body::after {
+      background: linear-gradient(225deg, #FFD439, transparent);
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+    }
+
+    /* === Navigation === */
+    .navbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 50px;
+      box-sizing: border-box;
+      z-index: 20;
+      background: transparent;
+    }
+
+    /* === Logo === */
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .cyber-blue {
+      color: #00ffff;
+    }
+
+    .cursor-blink {
+      animation: blink 1s step-start infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .logo-symbols {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 6px;
+      position: relative;
+      top: -5px;
+    }
+
+    .logo-symbols span {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .logo-text .main {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.05em;
+      margin-bottom: 2px;
+    }
+
+    .logo-text .sub {
+      font-size: 0.6rem;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-align: left;
+      margin-left: 0.25rem;
+      position: relative;
+      left: -5px;
+      top: 5px;
+    }
+    /* === Navigation rechts === */
+    .nav-links-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-link {
+      margin: 0 18px;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: color 0.3s;
+    }
+
+    .nav-link:first-of-type {
+      color: #FDC03B;
+    }
+
+    .nav-link:hover {
+      color: #FDC03B;
+    }
+
+    /* === 🔥 Leuchtender Reach Out Button === */
+    .reach-out-button {
+      margin-left: 30px;
+      background-color: #FDC03B;
+      color: black;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      position: relative;
+      animation: glow 1.8s infinite alternate;
+      box-shadow: 0 0 15px rgba(253, 192, 59, 0.6);
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .reach-out-button:hover {
+      background-color: #FFD700;
+      box-shadow: 0 0 25px rgba(253, 192, 59, 0.8);
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px rgba(253, 192, 59, 0.4),
+                    0 0 20px rgba(253, 192, 59, 0.3),
+                    0 0 30px rgba(253, 192, 59, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(253, 192, 59, 0.8),
+                    0 0 30px rgba(253, 192, 59, 0.6),
+                    0 0 40px rgba(253, 192, 59, 0.4);
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(253, 192, 59, 0.4),
+                    0 0 20px rgba(253, 192, 59, 0.3),
+                    0 0 30px rgba(253, 192, 59, 0.2);
+      }
+    }
+
+    .click-me-arrow {
+      position: absolute;
+      top: calc(-45px + 125px);
+      right: calc(0px + 40px);
+      color: #FDC03B;
+      font-size: 1rem;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      transform: rotate(-20deg);
+    }
+
+    .click-me-arrow::before {
+      content: '↑';
+      display: block;
+      font-size: 2rem;
+      line-height: 0.8;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+
+/* === Projekte === */
+.projects-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 800px;
+  z-index: 10;
+}
+
+.projects-container h2 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #FDC03B;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.projects-container p {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 40px;
+}
+
+.project-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.project-card {
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 20px;
+  width: 260px;
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(253,192,59,0.2);
+}
+
+.project-card h3 {
+  color: #FDC03B;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* === Bild unten links === */
+.portrait {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 300px;
+  border-radius: 10px;
+  z-index: 5;
+}
+
+/* Yellow blur behind portrait (matches index) */
+.portrait-wrapper {
+  position: absolute;
+  bottom: -40px;
+  left: 20px;
+  width: 300px;
+  height: auto;
+  z-index: 5;
+}
+
+.portrait-wrapper .blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  width: 480px;
+  height: 520px;
+  left: -100px;
+  bottom: -100px;
+  background: linear-gradient(45deg, #FFD439, transparent);
+  z-index: -1;
+}
+
+/* Responsive overrides for project page */
+@media (max-width: 1024px) {
+  .projects-container { max-width: 720px; padding: 0 24px; position: static; transform: none; }
+  .project-cards { gap: 18px; }
+  .project-card { width: 220px; }
+  .portrait-wrapper { left: 12px; bottom: -10px; }
+}
+@media (max-width: 600px) {
+  .navbar { padding: 14px 16px; }
+  .nav-links-container { display: none; }
+  .projects-container { padding: 16px; transform: none; left: 0; }
+  .project-cards { flex-direction: column; align-items: center; }
+  .project-card { width: calc(100% - 40px); max-width: 420px; }
+  .portrait-wrapper, .portrait { position: relative; width: 140px; margin: 18px auto; left: 0; bottom: 0; }
+}
+
+/* strong mobile overrides */
+@media (max-width: 600px) {
+  .projects-container, .project-cards, .project-card { position: static !important; transform: none !important; left: auto !important; }
+  .portrait { position: relative !important; width: 140px !important; left: 0 !important; bottom: 0 !important; margin: 12px auto !important; }
+  .nav-links-container { display: none !important; }
+}
+
+
+/* Smartpfohn und Tablet Anpassung */
+
+/* === TABLET (bis 1024px) === */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 20px 30px;
+  }
+
+  .nav-links-container {
+    gap: 10px;
+  }
+
+  .section {
+    padding: 40px 20px;
+  }
+
+  .about-container {
+    max-width: 90%;
+    padding: 0 20px;
+  }
+
+  .portrait {
+    width: 220px;
+    bottom: -20px;
+  }
+}
+
+/* === SMARTPHONE (bis 768px) === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+  }
+
+  .nav-links-container {
+    display: none; /* später durch JS-Menü ersetzt */
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .navbar.active .nav-links-container {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: #FDC03B;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  .section {
+    height: auto;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .about-container {
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .portrait {
+    position: static;
+    width: 180px;
+    margin: 30px auto;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  input, textarea {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

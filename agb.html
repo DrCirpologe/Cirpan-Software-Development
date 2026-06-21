@@ -1,385 +1,137 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGB — CIRPAN Software Development</title>
-  
-  <!-- SEO & Meta -->
-  <meta name="description" content="Allgemeine Geschäftsbedingungen von CIRPAN Software Development für Software-Entwicklungsleistungen.">
-  <meta name="keywords" content="AGB, Geschäftsbedingungen, CIRPAN, Software Development, Verträge">
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="style/modern.css">
-  
-  <style>
-    .legal-hero {
-      padding: var(--space-5xl) 0 var(--space-4xl);
-      text-align: center;
-      background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-      position: relative;
-      overflow: hidden;
+<html class="dark" lang="de"><head>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AGB | WebNova Studio</title>
+<meta name="description" content="Allgemeine Geschäftsbedingungen von WebNova Studio für Websites, Online-Shops, SEO, Wartung und digitale Dienstleistungen."/>
+<meta name="keywords" content="AGB, Geschäftsbedingungen, WebNova Studio, Website Erstellung, Online Shop, SEO"/>
+<meta name="author" content="Oğuzhan Cirpan"/>
+<meta name="robots" content="index, follow, max-image-preview:large"/>
+<meta name="language" content="de-AT"/>
+<meta name="geo.region" content="AT-9"/>
+<meta name="geo.placename" content="Wien"/>
+<link rel="canonical" href="https://cirpan-software-development.at/agb.html"/>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml"/>
+<meta name="thumbnail" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta name="image" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="AGB | WebNova Studio"/>
+<meta property="og:description" content="Allgemeine Geschäftsbedingungen von WebNova Studio für Websites, Online-Shops, SEO, Wartung und digitale Dienstleistungen."/>
+<meta property="og:url" content="https://cirpan-software-development.at/agb.html"/>
+<meta property="og:image" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta property="og:image:secure_url" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta property="og:image:width" content="1280"/>
+<meta property="og:image:height" content="714"/>
+<meta property="og:image:type" content="image/png"/>
+<meta property="og:image:alt" content="WebNova Studio - Webdesign, SEO und Online-Shops"/>
+<meta property="og:locale" content="de_AT"/>
+<meta property="og:site_name" content="WebNova Studio"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="AGB | WebNova Studio"/>
+<meta name="twitter:description" content="Allgemeine Geschäftsbedingungen von WebNova Studio für Websites, Online-Shops, SEO, Wartung und digitale Dienstleistungen."/>
+<meta name="twitter:image" content="https://cirpan-software-development.at/assets/web1.png"/>
+<meta name="twitter:image:alt" content="WebNova Studio - Webdesign, SEO und Online-Shops"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AGB | WebNova Studio",
+  "description": "Allgemeine Geschäftsbedingungen von WebNova Studio für Websites, Online-Shops, SEO, Wartung und digitale Dienstleistungen.",
+  "url": "https://cirpan-software-development.at/agb.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Startseite",
+      "item": "https://cirpan-software-development.at/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AGB",
+      "item": "https://cirpan-software-development.at/agb.html"
     }
-    
-    .legal-hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
-      animation: rotate 30s linear infinite;
-    }
-    
-    .legal-content {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: var(--space-4xl) 0;
-    }
-    
-    .legal-section {
-      background: var(--bg-secondary);
-      border: 1px solid var(--gray-800);
-      border-radius: var(--radius-xl);
-      padding: var(--space-2xl);
-      margin-bottom: var(--space-2xl);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .legal-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-    }
-    
-    .legal-section h2 {
-      color: var(--primary);
-      margin-bottom: var(--space-lg);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    
-    .legal-section h3 {
-      color: var(--text-primary);
-      margin: var(--space-xl) 0 var(--space-md);
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-    
-    .legal-section p,
-    .legal-section li {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: var(--space-md);
-    }
-    
-    .legal-section ul {
-      padding-left: var(--space-xl);
-      margin-bottom: var(--space-lg);
-    }
-    
-    .contact-info {
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid var(--primary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-xl);
-      margin: var(--space-xl) 0;
-    }
-    
-    .contact-info h3 {
-      color: var(--primary);
-      margin-bottom: var(--space-md);
-    }
-    
-    .contact-info p {
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .contact-info a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color var(--transition-normal);
-    }
-    
-    .contact-info a:hover {
-      color: var(--accent);
-    }
-    
-    @media (max-width: 768px) {
-      .legal-content {
-        padding: var(--space-2xl) var(--space-md);
-      }
-      
-      .legal-section {
-        padding: var(--space-xl);
-        margin-bottom: var(--space-xl);
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-container">
-        <a href="index.html" class="navbar-brand">
-          <span style="color: var(--primary);">{</span>
-          <span>CIRPAN</span>
-          <span style="color: var(--primary); animation: blink 1s infinite;">}</span>
-        </a>
-        
-        <ul class="navbar-nav">
-          <li><a href="index.html" class="nav-link">Start</a></li>
-          <li><a href="index.html#about" class="nav-link">Über mich</a></li>
-          <li><a href="index.html#services" class="nav-link">Services</a></li>
-          <li><a href="project.html" class="nav-link">Projekte</a></li>
-          <li><a href="reachOut.html" class="nav-link">Kontakt</a></li>
-        </ul>
-        
-        <button class="mobile-menu-btn" id="mobile-menu-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"text-secondary":"rgba(255,255,255,0.7)","surface-container-lowest":"#0e0e0e","surface-base":"#0F0F0F","on-surface":"#e5e2e1","primary":"#ffb4ac","primary-container":"#ff544c","premium-red":"#E53935","border-glass":"rgba(255,255,255,0.08)","text-muted":"rgba(255,255,255,0.4)"},spacing:{"gutter":"32px","section-padding-desktop":"160px","container-max-width":"1440px","section-padding-mobile":"80px"},fontFamily:{"headline-h1":["Hanken Grotesk"],"headline-h3":["Hanken Grotesk"],"headline-h1-mobile":["Hanken Grotesk"],"headline-h2":["Hanken Grotesk"],"body-lg":["Inter"],"body-md":["Inter"],"label-caps":["JetBrains Mono"]},fontSize:{"headline-h1":["64px",{"lineHeight":"1.2","letterSpacing":"0","fontWeight":"700"}],"headline-h1-mobile":["40px",{"lineHeight":"1.2","letterSpacing":"0","fontWeight":"700"}],"headline-h2":["40px",{"lineHeight":"1.3","letterSpacing":"0","fontWeight":"600"}],"headline-h3":["24px",{"lineHeight":"1.4","letterSpacing":"0","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}],"body-md":["16px",{"lineHeight":"1.6","letterSpacing":"0","fontWeight":"400"}],"label-caps":["12px",{"lineHeight":"1.2","letterSpacing":"0.1em","fontWeight":"500"}]}}}}</script>
+<link href="assets/styles.css" rel="stylesheet"/></head>
+<body class="bg-surface-base text-on-surface selection:bg-premium-red/30">
+<header class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200"><nav class="flex justify-between items-center h-20 px-gutter max-w-container-max-width mx-auto"><a class="flex items-center gap-3 font-headline-h3 text-headline-h3 font-bold text-gray-900" href="index.html"><img src="assets/logo1.png" alt="WebNova Studio Logo" class="h-7 w-auto"/><span>WebNova Studio</span></a><div class="hidden md:flex items-center gap-8"><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="index.html">Startseite</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="leistungen.html">Leistungen</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="preise.html">Preise</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="projekte.html">Projekte</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="ueber-uns.html">Über uns</a><a class="text-gray-600 hover:text-gray-900 transition-colors duration-200 font-body-md text-body-md" href="kontakt.html">Kontakt</a></div><a href="kontakt.html" class="bg-[#E53935] text-white px-6 py-3 rounded-xl font-label-caps text-label-caps hover:opacity-80 transition-opacity hidden sm:block">Erstgespräch</a></nav></header>
+<main class="pt-20"><section class="max-w-container-max-width mx-auto px-gutter py-20 md:py-28"><div class="max-w-4xl"><span class="font-label-caps text-label-caps text-primary mb-5 block uppercase tracking-[0.2em]">Allgemeine Geschäftsbedingungen</span><h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-white mb-6">Vertragsbedingungen für digitale Dienstleistungen</h1><p class="font-body-lg text-body-lg text-text-secondary max-w-3xl">Diese AGB gelten für Website-Erstellung, Online-Shops, SEO, Wartung, Betreuung und verwandte digitale Dienstleistungen von WebNova Studio.</p></div></section>
+<section class="max-w-5xl mx-auto px-gutter pb-24 md:pb-32"><div class="glass-card rounded-2xl p-8 md:p-10 space-y-8">
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">1. Anbieter und Geltungsbereich</h2><p class="font-body-md text-body-md text-text-secondary">WebNova Studio ist ein Angebot von CIRPAN Software Development, Inhaber: Oğuzhan Cirpan, Wien, Österreich. Kontakt: <a class="text-primary hover:text-white" href="mailto:office@webnovastudio.at">office@webnovastudio.at</a>. Diese AGB gelten für alle Verträge über digitale Dienstleistungen, sofern nicht schriftlich abweichende Vereinbarungen getroffen wurden.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">2. Leistungen</h2><p class="font-body-md text-body-md text-text-secondary">Der konkrete Leistungsumfang wird in individuellen Angeboten oder Projektvereinbarungen festgelegt. Typische Leistungen sind WordPress Websites, WooCommerce Online-Shops, Shopify Shops, Buchungs- und Reservierungssysteme, SEO, Wartung, Beratung, Konzeption, UI/UX Design und technische Umsetzung.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">3. Projektphasen</h2><p class="font-body-md text-body-md text-text-secondary">Projekte erfolgen in der Regel in den Phasen Anforderungsanalyse, Konzeption, Design, Umsetzung, Testing, Feedback, Veröffentlichung und Übergabe. Der tatsächliche Ablauf richtet sich nach Projektumfang und Vereinbarung.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">4. Preise und Zahlung</h2><p class="font-body-md text-body-md text-text-secondary">Alle Preise verstehen sich in Euro und, sofern anwendbar, exklusive gesetzlicher Umsatzsteuer. Fixpreis-Projekte werden nach Angebot abgerechnet. Sofern nichts anderes vereinbart wurde, erfolgt die Zahlung mit 50 Prozent Anzahlung bei Projektbeginn und 50 Prozent nach Fertigstellung und Abnahme. Bei größeren Projekten können Meilensteinzahlungen vereinbart werden.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">5. Termine und Mitwirkung</h2><p class="font-body-md text-body-md text-text-secondary">Liefertermine sind nur verbindlich, wenn sie schriftlich als verbindlich vereinbart wurden. Die Einhaltung von Terminen setzt voraus, dass der Auftraggeber benötigte Inhalte, Zugangsdaten, Freigaben und Informationen rechtzeitig bereitstellt.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">6. Änderungen und Abnahme</h2><p class="font-body-md text-body-md text-text-secondary">Nach Fertigstellung erhält der Auftraggeber die Möglichkeit zur Prüfung. Kleine Korrekturen im vereinbarten Umfang sind enthalten. Zusätzliche Funktionen, größere Änderungswünsche oder spätere Erweiterungen werden separat angeboten und berechnet.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">7. Urheberrecht und Nutzungsrechte</h2><p class="font-body-md text-body-md text-text-secondary">Alle entwickelten Designs, Texte, Konzepte, Strukturen und technischen Umsetzungen unterliegen dem Urheberrecht. Nach vollständiger Bezahlung erhält der Auftraggeber die vereinbarten Nutzungsrechte. Rechte an Drittanbieter-Tools, Themes, Plugins, Plattformen, Schriftarten oder Bildern richten sich nach deren jeweiligen Lizenzbedingungen.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">8. Gewährleistung und Haftung</h2><p class="font-body-md text-body-md text-text-secondary">WebNova Studio gewährleistet, dass die Leistungen zum Zeitpunkt der Übergabe den vereinbarten Spezifikationen entsprechen. Die Haftung ist, soweit gesetzlich zulässig, auf Vorsatz und grobe Fahrlässigkeit beschränkt. Für vom Auftraggeber bereitgestellte Inhalte, Rechtstexte, Bilder, Marken, Produktdaten und Zugangsdaten ist der Auftraggeber verantwortlich.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">9. Rechtswahl und Gerichtsstand</h2><p class="font-body-md text-body-md text-text-secondary">Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts. Gerichtsstand ist, soweit gesetzlich zulässig, Wien, Österreich.</p></div>
+<div><h2 class="font-headline-h3 text-headline-h3 text-white mb-3">10. Salvatorische Klausel</h2><p class="font-body-md text-body-md text-text-secondary">Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p></div>
+<div class="border-t border-border-glass pt-6"><p class="font-body-md text-body-md text-text-secondary">Stand: Oktober 2025. Diese AGB sind ein Entwurf und sollten vor Veröffentlichung rechtlich geprüft werden.</p></div>
+</div></section></main>
+<footer class="bg-surface-container-lowest w-full border-t border-border-glass">
+  <div class="max-w-container-max-width mx-auto px-gutter py-16 md:py-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
+      <div class="space-y-4">
+        <h3 class="font-headline-h3 text-headline-h3 font-bold text-on-surface">WebNova Studio</h3>
+        <p class="font-body-md text-body-md text-text-secondary max-w-xs">Digitale Lösungen für Unternehmen in Österreich</p>
+        <p class="font-body-md text-body-md text-text-secondary max-w-xs">Websites, Shops, SEO &amp; mehr</p>
       </div>
-    </div>
-  </nav>
-  
-  <!-- Mobile Navigation -->
-  <div class="mobile-nav" id="mobile-nav">
-    <div class="mobile-nav-content">
-      <a href="index.html" class="nav-link">Start</a>
-      <a href="index.html#about" class="nav-link">Über mich</a>
-      <a href="index.html#services" class="nav-link">Services</a>
-      <a href="project.html" class="nav-link">Projekte</a>
-      <a href="reachOut.html" class="nav-link">Kontakt</a>
+      <div class="space-y-4">
+        <h5 class="font-label-caps text-label-caps text-premium-red uppercase tracking-[0.16em]">Leistungen</h5>
+        <ul class="space-y-2">
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#wordpress">WordPress Websites</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#woocommerce">WooCommerce Online-Shop</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#shopify">Shopify Shops</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#buchung">Buchungssysteme</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#seo">SEO-Optimierung</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html#wartung">Laufende Betreuung</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="font-label-caps text-label-caps text-premium-red uppercase tracking-[0.16em]">Navigation</h5>
+        <ul class="space-y-2">
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="index.html">Start</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="leistungen.html">Leistungen</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="preise.html">Preise</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="projekte.html">Projekte</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="ueber-uns.html">Über uns</a></li>
+          <li><a class="font-body-md text-body-md text-text-secondary hover:text-on-surface transition-colors" href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h5 class="font-label-caps text-label-caps text-premium-red uppercase tracking-[0.16em]">Kontakt</h5>
+        <div class="space-y-2 font-body-md text-body-md text-text-secondary">
+          <p><a class="hover:text-on-surface transition-colors" href="tel:+436506803019">+43 650 6803019</a></p>
+          <p><a class="hover:text-on-surface transition-colors" href="mailto:office@webnovastudio.at">office@webnovastudio.at</a></p>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <!-- Hero Section -->
-  <section class="legal-hero">
-    <div class="container">
-      <h1 class="h1 animate-fade-in-up">Allgemeine Geschäftsbedingungen</h1>
-      <p class="text-lg text-secondary animate-fade-in-up" style="animation-delay: 0.2s;">
-        Vertragsbedingungen für Software-Entwicklungsleistungen
-      </p>
-    </div>
-  </section>
-  
-  <!-- Legal Content -->
-  <section class="section">
-    <div class="container">
-      <div class="legal-content">
-        
-        <!-- Anbieter -->
-        <div class="legal-section">
-          <h2>1. Anbieter und Geltungsbereich</h2>
-          <div class="contact-info">
-            <h3>CIRPAN Software Development</h3>
-            <p><strong>Inhaber:</strong> Oğuzhan Cirpan</p>
-            <p><strong>Adresse:</strong> Wien, Österreich</p>
-            <p><strong>E-Mail:</strong> <a href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a></p>
-            <p><strong>Website:</strong> <a href="https://cirpan.at">https://cirpan.at</a></p>
-          </div>
-          <p>
-            Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge über die Erbringung von 
-            Software-Entwicklungsleistungen, einschließlich iOS-Apps, Android-Apps, Websites und 
-            verwandten Dienstleistungen.
-          </p>
-        </div>
-        
-        <!-- Leistungen -->
-        <div class="legal-section">
-          <h2>2. Leistungen</h2>
-          
-          <h3>2.1 Leistungsumfang</h3>
-          <p>
-            Der konkrete Leistungsumfang wird in individuellen Projektvereinbarungen oder Angeboten 
-            festgelegt. Die Leistungen umfassen typischerweise:
-          </p>
-          <ul>
-            <li>Entwicklung von iOS-Apps mit Swift/SwiftUI</li>
-            <li>Entwicklung von Android-Apps mit Kotlin/Java</li>
-            <li>Web-Entwicklung mit modernen Technologien</li>
-            <li>UI/UX Design und Prototyping</li>
-            <li>Beratung und Konzeption</li>
-          </ul>
-          
-          <h3>2.2 Projektphasen</h3>
-          <p>
-            Die Entwicklung erfolgt in der Regel in folgenden Phasen:
-          </p>
-          <ul>
-            <li>Anforderungsanalyse und Konzeption</li>
-            <li>Design und Prototyping</li>
-            <li>Entwicklung und Implementierung</li>
-            <li>Testing und Qualitätssicherung</li>
-            <li>Deployment und Übergabe</li>
-          </ul>
-        </div>
-        
-        <!-- Preise und Zahlung -->
-        <div class="legal-section">
-          <h2>3. Preise und Zahlung</h2>
-          
-          <h3>3.1 Preise</h3>
-          <p>
-            Alle Preise verstehen sich in Euro, exkl. gesetzlicher Umsatzsteuer (sofern anwendbar). 
-            Die Preise richten sich nach dem aktuellen Angebot oder der individuellen Projektvereinbarung.
-          </p>
-          
-          <h3>3.2 Zahlungsbedingungen</h3>
-          <p>
-            Die Zahlung erfolgt – sofern nicht anders vereinbart – per Überweisung. 
-            Standardmäßig wird wie folgt abgerechnet:
-          </p>
-          <ul>
-            <li>50% Anzahlung bei Projektbeginn</li>
-            <li>50% nach Fertigstellung und Abnahme</li>
-            <li>Bei größeren Projekten: Teilzahlungen nach Meilensteinen</li>
-          </ul>
-        </div>
-        
-        <!-- Termine und Verzug -->
-        <div class="legal-section">
-          <h2>4. Termine und Verzug</h2>
-          
-          <h3>4.1 Liefertermine</h3>
-          <p>
-            Liefertermine sind nur dann verbindlich, wenn sie schriftlich als verbindlich vereinbart wurden. 
-            Die Einhaltung von Terminen setzt die rechtzeitige Bereitstellung aller erforderlichen 
-            Informationen und Materialien durch den Auftraggeber voraus.
-          </p>
-          
-          <h3>4.2 Verzug</h3>
-          <p>
-            Bei Verzögerungen durch höhere Gewalt, Streik, Aussperrung oder andere unvorhersehbare 
-            Umstände verlängern sich die Lieferfristen entsprechend.
-          </p>
-        </div>
-        
-        <!-- Urheberrecht -->
-        <div class="legal-section">
-          <h2>5. Urheberrecht und Nutzungsrechte</h2>
-          
-          <h3>5.1 Urheberrecht</h3>
-          <p>
-            Alle entwickelten Software-Lösungen, Designs und Dokumentationen unterliegen dem Urheberrecht. 
-            Der Auftraggeber erhält die erforderlichen Nutzungsrechte nach vollständiger Bezahlung.
-          </p>
-          
-          <h3>5.2 Nutzungsrechte</h3>
-          <p>
-            Mit vollständiger Bezahlung gehen die exklusiven Nutzungsrechte an der entwickelten Software 
-            an den Auftraggeber über, sofern nicht anders vereinbart.
-          </p>
-        </div>
-        
-        <!-- Gewährleistung -->
-        <div class="legal-section">
-          <h2>6. Gewährleistung und Haftung</h2>
-          
-          <h3>6.1 Gewährleistung</h3>
-          <p>
-            Wir gewährleisten, dass die gelieferte Software zum Zeitpunkt der Übergabe den vereinbarten 
-            Spezifikationen entspricht und frei von wesentlichen Fehlern ist.
-          </p>
-          
-          <h3>6.2 Haftungsbeschränkung</h3>
-          <p>
-            Die Haftung ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Bei leichter Fahrlässigkeit 
-            haften wir nur bei Verletzung wesentlicher Vertragspflichten und nur bis zur Höhe des 
-            Auftragswertes.
-          </p>
-        </div>
-        
-        <!-- Schlussbestimmungen -->
-        <div class="legal-section">
-          <h2>7. Schlussbestimmungen</h2>
-          
-          <h3>7.1 Rechtswahl</h3>
-          <p>
-            Es gilt österreichisches Recht unter Ausschluss des UN-Kaufrechts.
-          </p>
-          
-          <h3>7.2 Gerichtsstand</h3>
-          <p>
-            Gerichtsstand ist Wien, Österreich.
-          </p>
-          
-          <h3>7.3 Salvatorische Klausel</h3>
-          <p>
-            Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Wirksamkeit der 
-            übrigen Bestimmungen unberührt.
-          </p>
-          
-          <p><strong>Stand:</strong> Oktober 2025</p>
-        </div>
-        
+  <div class="border-t border-border-glass bg-black/20">
+    <div class="max-w-container-max-width mx-auto px-gutter py-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="datenschutz.html">Datenschutz</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="impressum.html">Impressum</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="agb.html">AGB</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="cookies.html">Cookies</a>
+        <a class="font-body-md text-[14px] text-text-secondary hover:text-on-surface transition-colors" href="faq.html">FAQ</a>
       </div>
+      <p class="font-body-md text-[14px] text-text-muted">© 2026 WebNova Studio</p>
     </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="section-sm bg-secondary">
-    <div class="container">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-xl">
-        <div class="col-span-2">
-          <div class="navbar-brand mb-lg">
-            <span style="color: var(--primary);">{</span>
-            <span>CIRPAN</span>
-            <span style="color: var(--primary);">}</span>
-          </div>
-          <p class="text-muted mb-lg">
-            Professionelle Software-Entwicklung mit modernsten Technologien 
-            und ansprechendem Design.
-          </p>
-          <p class="text-sm text-muted">
-            © 2025 CIRPAN Software Development. Alle Rechte vorbehalten.
-          </p>
-        </div>
-        
-        <div>
-          <h3 class="mb-lg">Services</h3>
-          <ul class="space-y-sm">
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">iOS Entwicklung</a></li>
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Android Entwicklung</a></li>
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">Web Entwicklung</a></li>
-            <li><a href="index.html#services" class="text-muted hover:text-primary transition">UI/UX Design</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h3 class="mb-lg">Legal</h3>
-          <ul class="space-y-sm">
-            <li><a href="impressum.html" class="text-muted hover:text-primary transition">Impressum</a></li>
-            <li><a href="datenschutz.html" class="text-muted hover:text-primary transition">Datenschutz</a></li>
-            <li><a href="cookies.html" class="text-muted hover:text-primary transition">Cookie-Richtlinie</a></li>
-            <li><a href="agb.html" class="text-muted hover:text-primary transition">AGB</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-  
-  <!-- Scripts -->
-  <script src="js/cookie-consent.js"></script>
-  <script src="js/modern.js"></script>
-  <script>
-    // Diese Funktionalität wird jetzt von modern.js übernommen
-    // Mobile menu wird automatisch initialisiert
-  </script>
-</body>
-</html>
+  </div>
+</footer>
+<script src="assets/scripts.js"></script></body></html>
