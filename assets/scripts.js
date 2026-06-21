@@ -392,6 +392,10 @@
         function updateOffset() {
             heroBlock.style.marginLeft = '0px';
 
+            if (window.innerWidth < 1024) {
+                return;
+            }
+
             var headerBottom = header.getBoundingClientRect().bottom;
             var labelTop = heroLabel.getBoundingClientRect().top;
             var topGap = Math.max(0, Math.round(labelTop - headerBottom));

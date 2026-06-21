@@ -1044,12 +1044,12 @@ header.fixed .nav-dropdown-trigger:active::after {
 
 .mobile-menu-panel {
     display: none;
-    position: absolute;
-    z-index: 60;
+    position: fixed;
+    z-index: 70;
     left: 16px;
     right: 16px;
-    top: calc(100% + 10px);
-    max-height: calc(100vh - 92px);
+    top: 82px;
+    max-height: calc(100dvh - 98px);
     overflow-y: auto;
     padding: 12px;
     border: 1px solid rgba(17, 17, 17, 0.08);
@@ -1108,6 +1108,11 @@ header.fixed .nav-dropdown-trigger:active::after {
 
 body.mobile-menu-open .mobile-menu-panel {
     display: block;
+    height: auto !important;
+}
+
+body.mobile-menu-open {
+    overflow: hidden;
 }
 
 body.mobile-menu-open .mobile-menu-toggle span:nth-child(1) {
@@ -1131,6 +1136,12 @@ body.mobile-menu-open .mobile-menu-toggle span:nth-child(3) {
 
     header.fixed {
         isolation: isolate;
+    }
+
+    body.nav-is-compact .mobile-menu-panel {
+        top: 70px;
+        height: auto !important;
+        max-height: calc(100dvh - 86px);
     }
 
     header.fixed > nav {
