@@ -165,6 +165,19 @@ nav.fixed {
     transition: background-color 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
 
+.footer-brand-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.footer-brand-icon {
+    width: auto;
+    height: 0.575em;
+    flex: 0 0 auto;
+    object-fit: contain;
+}
+
 main.pt-20 {
     padding-top: 104px;
 }
