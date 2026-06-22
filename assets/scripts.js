@@ -24,8 +24,19 @@
             return;
         }
 
+        var isCompact = null;
+
         function updateNavState() {
-            document.body.classList.toggle('nav-is-compact', window.scrollY > 24);
+            var shouldBeCompact = isCompact
+                ? window.scrollY > 8
+                : window.scrollY > 32;
+
+            if (shouldBeCompact === isCompact) {
+                return;
+            }
+
+            isCompact = shouldBeCompact;
+            document.body.classList.toggle('nav-is-compact', isCompact);
         }
 
         updateNavState();
