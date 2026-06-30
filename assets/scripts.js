@@ -281,18 +281,16 @@
             });
         }
 
+        if (new URLSearchParams(window.location.search).get('gesendet') === '1') {
+            successMessage.classList.remove('hidden');
+            successMessage.classList.add('animate-in', 'fade-in', 'duration-500');
+        }
+
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             var btn = contactForm.querySelector('button[type="submit"]');
             if (!btn) {
-                return;
-            }
-
-            if (!window.emailjs) {
-                if (errorMessage) {
-                    errorMessage.classList.remove('hidden');
-                }
                 return;
             }
 
@@ -304,16 +302,30 @@
                 errorMessage.classList.add('hidden');
             }
 
-            var emailInput = contactForm.querySelector('[name="from_email"]');
-            var replyToInput = document.getElementById('reply-to');
-            var projectTypeSelect = document.getElementById('project-type');
-            var projectTypesInput = document.getElementById('project-types');
-            if (emailInput && replyToInput) {
-                replyToInput.value = emailInput.value;
+            function prepareFormFields() {
+                var emailInput = contactForm.querySelector('[name="from_email"]');
+                var replyToInput = document.getElementById('reply-to');
+                var projectTypeSelect = document.getElementById('project-type');
+                var projectTypesInput = document.getElementById('project-types');
+                if (emailInput && replyToInput) {
+                    replyToInput.value = emailInput.value;
+                }
+                if (projectTypeSelect && projectTypesInput) {
+                    var selectedOption = projectTypeSelect.options[projectTypeSelect.selectedIndex];
+                    projectTypesInput.value = selectedOption ? selectedOption.text : projectTypeSelect.value;
+                }
             }
-            if (projectTypeSelect && projectTypesInput) {
-                var selectedOption = projectTypeSelect.options[projectTypeSelect.selectedIndex];
-                projectTypesInput.value = selectedOption ? selectedOption.text : projectTypeSelect.value;
+
+            function submitWithFallback() {
+                prepareFormFields();
+                contactForm.submit();
+            }
+
+            prepareFormFields();
+
+            if (!window.emailjs) {
+                submitWithFallback();
+                return;
             }
 
             window.emailjs.sendForm('service_y2qfp0k', 'template_d1q49pp', contactForm)
@@ -324,11 +336,7 @@
                 })
                 .catch(function (error) {
                     console.error('EmailJS submission error:', error);
-                    if (errorMessage) {
-                        var detail = error && (error.text || error.message) ? ' Fehler: ' + (error.text || error.message) : '';
-                        errorMessage.innerHTML = 'Beim Senden ist ein Fehler aufgetreten.' + detail + ' Bitte versuchen Sie es erneut oder schreiben Sie direkt an <a class="underline hover:text-white" href="mailto:info.cirpan@gmail.com">info.cirpan@gmail.com</a>.';
-                        errorMessage.classList.remove('hidden');
-                    }
+                    submitWithFallback();
                 })
                 .finally(function () {
                     btn.innerHTML = originalText;
