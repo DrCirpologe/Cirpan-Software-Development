@@ -1,4 +1,124 @@
 (function () {
+    var WEBNOVA_GA_MEASUREMENT_ID = 'G-R7V6X1MTXX';
+    var COOKIE_CONSENT_KEY = 'webnova_cookie_consent_v1';
+
+    function setupAnalyticsConsent() {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () {
+            window.dataLayer.push(arguments);
+        };
+
+        window.gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied'
+        });
+
+        function getStoredConsent() {
+            try {
+                return JSON.parse(window.localStorage.getItem(COOKIE_CONSENT_KEY));
+            } catch (error) {
+                return null;
+            }
+        }
+
+        function storeConsent(analyticsAllowed) {
+            window.localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify({
+                necessary: true,
+                analytics: analyticsAllowed,
+                savedAt: new Date().toISOString()
+            }));
+        }
+
+        function updateConsent(analyticsAllowed) {
+            window.gtag('consent', 'update', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: analyticsAllowed ? 'granted' : 'denied'
+            });
+
+            if (analyticsAllowed) {
+                loadGoogleAnalytics();
+            }
+        }
+
+        function loadGoogleAnalytics() {
+            if (document.querySelector('script[data-webnova-ga]')) {
+                return;
+            }
+
+            var script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(WEBNOVA_GA_MEASUREMENT_ID);
+            script.setAttribute('data-webnova-ga', 'true');
+            document.head.appendChild(script);
+
+            window.gtag('js', new Date());
+            window.gtag('config', WEBNOVA_GA_MEASUREMENT_ID, {
+                anonymize_ip: true
+            });
+        }
+
+        function hideBanner() {
+            var banner = document.querySelector('.cookie-consent-banner');
+            if (banner) {
+                banner.remove();
+            }
+        }
+
+        function showBanner() {
+            if (document.querySelector('.cookie-consent-banner')) {
+                return;
+            }
+
+            var banner = document.createElement('div');
+            banner.className = 'cookie-consent-banner';
+            banner.setAttribute('role', 'dialog');
+            banner.setAttribute('aria-live', 'polite');
+            banner.setAttribute('aria-label', 'Cookie-Einstellungen');
+            banner.innerHTML = [
+                '<div class="cookie-consent-copy">',
+                '<strong>Cookies & Analyse</strong>',
+                '<p>Wir nutzen Google Analytics nur nach Ihrer Zustimmung, um Besucherzahlen und Seitenaufrufe zu verstehen.</p>',
+                '</div>',
+                '<div class="cookie-consent-actions">',
+                '<button type="button" class="cookie-consent-secondary" data-cookie-decline>Ablehnen</button>',
+                '<button type="button" class="cookie-consent-primary" data-cookie-accept>Akzeptieren</button>',
+                '</div>'
+            ].join('');
+
+            document.body.appendChild(banner);
+
+            banner.querySelector('[data-cookie-accept]').addEventListener('click', function () {
+                storeConsent(true);
+                updateConsent(true);
+                hideBanner();
+            });
+
+            banner.querySelector('[data-cookie-decline]').addEventListener('click', function () {
+                storeConsent(false);
+                updateConsent(false);
+                hideBanner();
+            });
+        }
+
+        window.WebNovaCookieConsent = {
+            reset: function () {
+                window.localStorage.removeItem(COOKIE_CONSENT_KEY);
+                showBanner();
+            }
+        };
+
+        var storedConsent = getStoredConsent();
+        if (storedConsent) {
+            updateConsent(Boolean(storedConsent.analytics));
+        } else {
+            showBanner();
+        }
+    }
+
     function setupSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
             anchor.addEventListener('click', function (e) {
@@ -584,6 +704,7 @@
         window.addEventListener('resize', render);
     }
 
+    setupAnalyticsConsent();
     setupSmoothScroll();
     setupCompactNavOnScroll();
     setupNavDropdowns();
