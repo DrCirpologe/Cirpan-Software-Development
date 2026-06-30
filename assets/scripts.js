@@ -1,6 +1,6 @@
 (function () {
     var WEBNOVA_GA_MEASUREMENT_ID = 'G-R7V6X1MTXX';
-    var COOKIE_CONSENT_KEY = 'webnova_cookie_consent_v1';
+    var COOKIE_CONSENT_KEY = 'webnova_cookie_consent_v2';
 
     function setupAnalyticsConsent() {
         window.dataLayer = window.dataLayer || [];
