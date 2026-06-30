@@ -477,16 +477,16 @@
                     return { x: 0, y: 0, z: 250, ry: 0, scale: 1, opacity: 1, brightness: 1, blur: 0, contrast: 1, visible: true };
                 }
                 if (rel === -1) {
-                    return { x: -210, y: 36, z: 130, ry: 20, scale: 0.84, opacity: 0.8, brightness: 0.72, blur: 1, contrast: 0.9, visible: true };
+                    return { x: -245, y: 42, z: 120, ry: 18, scale: 0.78, opacity: 0.78, brightness: 0.72, blur: 1, contrast: 0.9, visible: true };
                 }
                 if (rel === 1) {
-                    return { x: 210, y: 36, z: 130, ry: -20, scale: 0.84, opacity: 0.8, brightness: 0.72, blur: 1, contrast: 0.9, visible: true };
+                    return { x: 245, y: 42, z: 120, ry: -18, scale: 0.78, opacity: 0.78, brightness: 0.72, blur: 1, contrast: 0.9, visible: true };
                 }
                 if (rel === -2) {
-                    return { x: -390, y: 80, z: 20, ry: 35, scale: 0.68, opacity: 0.55, brightness: 0.66, blur: 2, contrast: 0.86, visible: true };
+                    return { x: -470, y: 94, z: 10, ry: 32, scale: 0.58, opacity: 0.48, brightness: 0.66, blur: 2, contrast: 0.86, visible: true };
                 }
                 if (rel === 2) {
-                    return { x: 390, y: 80, z: 20, ry: -35, scale: 0.68, opacity: 0.55, brightness: 0.66, blur: 2, contrast: 0.86, visible: true };
+                    return { x: 470, y: 94, z: 10, ry: -32, scale: 0.58, opacity: 0.48, brightness: 0.66, blur: 2, contrast: 0.86, visible: true };
                 }
                 return { x: 0, y: 110, z: -180, ry: 0, scale: 0.58, opacity: 0, brightness: 0.58, blur: 3, contrast: 0.8, visible: false };
             }
@@ -495,16 +495,16 @@
                 return { x: 0, y: 0, z: 260, ry: 0, scale: 1, opacity: 1, brightness: 1, blur: 0, contrast: 1, visible: true };
             }
             if (rel === -1) {
-                return { x: -250, y: 40, z: 140, ry: 20, scale: 0.85, opacity: 0.8, brightness: 0.7, blur: 1, contrast: 0.9, visible: true };
+                return { x: -360, y: 48, z: 120, ry: 18, scale: 0.74, opacity: 0.76, brightness: 0.7, blur: 1, contrast: 0.9, visible: true };
             }
             if (rel === -2) {
-                return { x: -500, y: 90, z: 20, ry: 35, scale: 0.7, opacity: 0.55, brightness: 0.65, blur: 2, contrast: 0.86, visible: true };
+                return { x: -680, y: 104, z: 10, ry: 32, scale: 0.55, opacity: 0.5, brightness: 0.65, blur: 2, contrast: 0.86, visible: true };
             }
             if (rel === 1) {
-                return { x: 250, y: 40, z: 140, ry: -20, scale: 0.85, opacity: 0.8, brightness: 0.7, blur: 1, contrast: 0.9, visible: true };
+                return { x: 360, y: 48, z: 120, ry: -18, scale: 0.74, opacity: 0.76, brightness: 0.7, blur: 1, contrast: 0.9, visible: true };
             }
             if (rel === 2) {
-                return { x: 500, y: 90, z: 20, ry: -35, scale: 0.7, opacity: 0.55, brightness: 0.65, blur: 2, contrast: 0.86, visible: true };
+                return { x: 680, y: 104, z: 10, ry: -32, scale: 0.55, opacity: 0.5, brightness: 0.65, blur: 2, contrast: 0.86, visible: true };
             }
             return { x: 0, y: 130, z: -180, ry: 0, scale: 0.6, opacity: 0.4, brightness: 0.55, blur: 3, contrast: 0.82, visible: true };
         }

@@ -645,7 +645,7 @@ select {
 
 .portfolio-carousel {
     position: relative;
-    height: 560px;
+    height: 680px;
     perspective: 2000px;
     transform-style: preserve-3d;
     display: flex;
@@ -668,11 +668,11 @@ select {
     --blur: 0px;
     --contrast: 1;
     position: absolute;
-    width: min(50vw, 520px);
-    aspect-ratio: 16 / 10;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: min(72vw, 760px);
+    aspect-ratio: 16 / 10.6;
+    border-radius: 26px;
+    overflow: visible;
+    border: 0;
     transform-style: preserve-3d;
     transform: translateX(var(--x)) translateY(var(--y)) translateZ(var(--z)) rotateY(var(--ry)) scale(var(--scale));
     opacity: var(--opacity);
@@ -685,11 +685,72 @@ select {
         box-shadow 1000ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.portfolio-slide img {
+.portfolio-browser-frame {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 26px;
+    background: linear-gradient(180deg, #151515 0%, #050505 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 28px 90px rgba(0, 0, 0, 0.46);
+}
+
+.portfolio-browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 52px;
+    padding: 0 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    background: linear-gradient(180deg, #1c1c1c 0%, #111111 100%);
+}
+
+.portfolio-browser-bar::after {
+    content: '';
     display: block;
+    width: min(46%, 290px);
+    height: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.26), 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.portfolio-browser-bar span {
+    width: 11px;
+    height: 11px;
+    border-radius: 9999px;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-browser-bar span:nth-child(1) {
+    background: #ff5f57;
+}
+
+.portfolio-browser-bar span:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.portfolio-browser-bar span:nth-child(3) {
+    background: #28c840;
+}
+
+.portfolio-browser-viewport {
+    height: calc(100% - 52px);
+    overflow: hidden;
+    background: #050505;
+}
+
+.portfolio-browser-viewport img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transform: scaleY(0.74);
+    transform-origin: top center;
 }
 
 .portfolio-slide.is-center {
@@ -704,11 +765,11 @@ select {
 
 @media (max-width: 1024px) {
     .portfolio-carousel {
-        height: 500px;
+        height: 580px;
     }
 
     .portfolio-slide {
-        width: min(66vw, 500px);
+        width: min(74vw, 640px);
     }
 }
 
@@ -722,11 +783,36 @@ select {
     }
 
     .portfolio-carousel {
-        height: 360px;
+        height: 410px;
     }
 
     .portfolio-slide {
-        width: min(72vw, 320px);
+        width: min(82vw, 370px);
+        border-radius: 18px;
+    }
+
+    .portfolio-browser-frame {
+        border-radius: 18px;
+    }
+
+    .portfolio-browser-bar {
+        height: 38px;
+        gap: 6px;
+        padding: 0 14px;
+    }
+
+    .portfolio-browser-bar::after {
+        width: min(44%, 170px);
+        height: 13px;
+    }
+
+    .portfolio-browser-bar span {
+        width: 9px;
+        height: 9px;
+    }
+
+    .portfolio-browser-viewport {
+        height: calc(100% - 38px);
     }
 }
 
@@ -1281,12 +1367,24 @@ body.mobile-menu-open .mobile-menu-toggle span:nth-child(3) {
     }
 
     .portfolio-carousel {
-        height: 300px;
+        height: 360px;
     }
 
     .portfolio-slide {
         border-radius: 14px;
-        width: min(78vw, 300px);
+        width: min(86vw, 340px);
+    }
+
+    .portfolio-browser-frame {
+        border-radius: 14px;
+    }
+
+    .portfolio-browser-bar {
+        height: 34px;
+    }
+
+    .portfolio-browser-viewport {
+        height: calc(100% - 34px);
     }
 
     .masonry-grid {
